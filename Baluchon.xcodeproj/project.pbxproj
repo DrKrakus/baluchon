@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		106D3A792213027C0048CFEC /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106D3A782213027C0048CFEC /* CustomTabBarViewController.swift */; };
+		107F4EC02212EE6400E6BF89 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107F4EBF2212EE6400E6BF89 /* CurrencyViewController.swift */; };
+		107F4EC22212FE0300E6BF89 /* TranslatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107F4EC12212FE0300E6BF89 /* TranslatorViewController.swift */; };
+		107F4EC42212FE3F00E6BF89 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107F4EC32212FE3F00E6BF89 /* WeatherViewController.swift */; };
+		10938F7B2212DB7A00F15F60 /* PostLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10938F7A2212DB7A00F15F60 /* PostLaunchViewController.swift */; };
+		10938F7D2212DC3A00F15F60 /* ShadowAndRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10938F7C2212DC3A00F15F60 /* ShadowAndRadius.swift */; };
 		10EEBAEC2211A5E6009C6311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EEBAEB2211A5E6009C6311 /* AppDelegate.swift */; };
-		10EEBAEE2211A5E6009C6311 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EEBAED2211A5E6009C6311 /* ViewController.swift */; };
 		10EEBAF12211A5E6009C6311 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EEBAEF2211A5E6009C6311 /* Main.storyboard */; };
 		10EEBAF32211A5E7009C6311 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10EEBAF22211A5E7009C6311 /* Assets.xcassets */; };
 		10EEBAF62211A5E7009C6311 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EEBAF42211A5E7009C6311 /* LaunchScreen.storyboard */; };
@@ -34,9 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		106D3A782213027C0048CFEC /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
+		107F4EBF2212EE6400E6BF89 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
+		107F4EC12212FE0300E6BF89 /* TranslatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorViewController.swift; sourceTree = "<group>"; };
+		107F4EC32212FE3F00E6BF89 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		10938F7A2212DB7A00F15F60 /* PostLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLaunchViewController.swift; sourceTree = "<group>"; };
+		10938F7C2212DC3A00F15F60 /* ShadowAndRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowAndRadius.swift; sourceTree = "<group>"; };
 		10EEBAE82211A5E6009C6311 /* Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10EEBAEB2211A5E6009C6311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		10EEBAED2211A5E6009C6311 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		10EEBAF02211A5E6009C6311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		10EEBAF22211A5E7009C6311 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10EEBAF52211A5E7009C6311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -137,6 +147,7 @@
 			children = (
 				10EEBAEF2211A5E6009C6311 /* Main.storyboard */,
 				10EEBAF42211A5E7009C6311 /* LaunchScreen.storyboard */,
+				10938F7C2212DC3A00F15F60 /* ShadowAndRadius.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -144,7 +155,11 @@
 		10EEBB1B2211A5FE009C6311 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				10EEBAED2211A5E6009C6311 /* ViewController.swift */,
+				10938F7A2212DB7A00F15F60 /* PostLaunchViewController.swift */,
+				107F4EBF2212EE6400E6BF89 /* CurrencyViewController.swift */,
+				107F4EC12212FE0300E6BF89 /* TranslatorViewController.swift */,
+				107F4EC32212FE3F00E6BF89 /* WeatherViewController.swift */,
+				106D3A782213027C0048CFEC /* CustomTabBarViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -280,8 +295,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10EEBAEE2211A5E6009C6311 /* ViewController.swift in Sources */,
 				10EEBAEC2211A5E6009C6311 /* AppDelegate.swift in Sources */,
+				107F4EC42212FE3F00E6BF89 /* WeatherViewController.swift in Sources */,
+				107F4EC02212EE6400E6BF89 /* CurrencyViewController.swift in Sources */,
+				10938F7D2212DC3A00F15F60 /* ShadowAndRadius.swift in Sources */,
+				106D3A792213027C0048CFEC /* CustomTabBarViewController.swift in Sources */,
+				10938F7B2212DB7A00F15F60 /* PostLaunchViewController.swift in Sources */,
+				107F4EC22212FE0300E6BF89 /* TranslatorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,14 +479,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LB6NT562ER;
 				INFOPLIST_FILE = Baluchon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jeromkrakus.Baluchon;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jeromkrakus.Baluchon-oc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -477,14 +498,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LB6NT562ER;
 				INFOPLIST_FILE = Baluchon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jeromkrakus.Baluchon;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jeromkrakus.Baluchon-oc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
