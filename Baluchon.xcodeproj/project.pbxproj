@@ -97,11 +97,11 @@
 		10EEBAEA2211A5E6009C6311 /* Baluchon */ = {
 			isa = PBXGroup;
 			children = (
+				10EEBB1B2211A5FE009C6311 /* Controller */,
+				10EEBB1A2211A5F9009C6311 /* View */,
+				10EEBB192211A5EE009C6311 /* Model */,
 				10EEBAEB2211A5E6009C6311 /* AppDelegate.swift */,
-				10EEBAED2211A5E6009C6311 /* ViewController.swift */,
-				10EEBAEF2211A5E6009C6311 /* Main.storyboard */,
 				10EEBAF22211A5E7009C6311 /* Assets.xcassets */,
-				10EEBAF42211A5E7009C6311 /* LaunchScreen.storyboard */,
 				10EEBAF72211A5E7009C6311 /* Info.plist */,
 			);
 			path = Baluchon;
@@ -123,6 +123,30 @@
 				10EEBB0D2211A5E7009C6311 /* Info.plist */,
 			);
 			path = BaluchonUITests;
+			sourceTree = "<group>";
+		};
+		10EEBB192211A5EE009C6311 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		10EEBB1A2211A5F9009C6311 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				10EEBAEF2211A5E6009C6311 /* Main.storyboard */,
+				10EEBAF42211A5E7009C6311 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		10EEBB1B2211A5FE009C6311 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				10EEBAED2211A5E6009C6311 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
