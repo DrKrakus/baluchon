@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1034C0B122141F490050BC1E /* DIN Alternate Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1034C0B022141F480050BC1E /* DIN Alternate Bold.otf */; };
 		106D3A792213027C0048CFEC /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106D3A782213027C0048CFEC /* CustomTabBarViewController.swift */; };
 		107F4EC02212EE6400E6BF89 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107F4EBF2212EE6400E6BF89 /* CurrencyViewController.swift */; };
 		107F4EC22212FE0300E6BF89 /* TranslatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107F4EC12212FE0300E6BF89 /* TranslatorViewController.swift */; };
 		107F4EC42212FE3F00E6BF89 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107F4EC32212FE3F00E6BF89 /* WeatherViewController.swift */; };
 		10938F7B2212DB7A00F15F60 /* PostLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10938F7A2212DB7A00F15F60 /* PostLaunchViewController.swift */; };
-		10938F7D2212DC3A00F15F60 /* ShadowAndRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10938F7C2212DC3A00F15F60 /* ShadowAndRadius.swift */; };
+		1093E9FF221437D4008E7653 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093E9FE221437D4008E7653 /* DesignableButton.swift */; };
+		1093EA012214381E008E7653 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1093EA002214381E008E7653 /* DesignableView.swift */; };
 		10EEBAEC2211A5E6009C6311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EEBAEB2211A5E6009C6311 /* AppDelegate.swift */; };
 		10EEBAF12211A5E6009C6311 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EEBAEF2211A5E6009C6311 /* Main.storyboard */; };
 		10EEBAF32211A5E7009C6311 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10EEBAF22211A5E7009C6311 /* Assets.xcassets */; };
@@ -39,12 +41,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1034C0B022141F480050BC1E /* DIN Alternate Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN Alternate Bold.otf"; sourceTree = "<group>"; };
 		106D3A782213027C0048CFEC /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
 		107F4EBF2212EE6400E6BF89 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		107F4EC12212FE0300E6BF89 /* TranslatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorViewController.swift; sourceTree = "<group>"; };
 		107F4EC32212FE3F00E6BF89 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		10938F7A2212DB7A00F15F60 /* PostLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLaunchViewController.swift; sourceTree = "<group>"; };
-		10938F7C2212DC3A00F15F60 /* ShadowAndRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowAndRadius.swift; sourceTree = "<group>"; };
+		1093E9FE221437D4008E7653 /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
+		1093EA002214381E008E7653 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		10EEBAE82211A5E6009C6311 /* Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10EEBAEB2211A5E6009C6311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10EEBAF02211A5E6009C6311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1034C0AF22141EFA0050BC1E /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				1034C0B022141F480050BC1E /* DIN Alternate Bold.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		10EEBADF2211A5E6009C6311 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +119,7 @@
 		10EEBAEA2211A5E6009C6311 /* Baluchon */ = {
 			isa = PBXGroup;
 			children = (
+				1034C0AF22141EFA0050BC1E /* Font */,
 				10EEBB1B2211A5FE009C6311 /* Controller */,
 				10EEBB1A2211A5F9009C6311 /* View */,
 				10EEBB192211A5EE009C6311 /* Model */,
@@ -147,7 +160,8 @@
 			children = (
 				10EEBAEF2211A5E6009C6311 /* Main.storyboard */,
 				10EEBAF42211A5E7009C6311 /* LaunchScreen.storyboard */,
-				10938F7C2212DC3A00F15F60 /* ShadowAndRadius.swift */,
+				1093E9FE221437D4008E7653 /* DesignableButton.swift */,
+				1093EA002214381E008E7653 /* DesignableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -269,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10EEBAF62211A5E7009C6311 /* LaunchScreen.storyboard in Resources */,
+				1034C0B122141F490050BC1E /* DIN Alternate Bold.otf in Resources */,
 				10EEBAF32211A5E7009C6311 /* Assets.xcassets in Resources */,
 				10EEBAF12211A5E6009C6311 /* Main.storyboard in Resources */,
 			);
@@ -298,10 +313,11 @@
 				10EEBAEC2211A5E6009C6311 /* AppDelegate.swift in Sources */,
 				107F4EC42212FE3F00E6BF89 /* WeatherViewController.swift in Sources */,
 				107F4EC02212EE6400E6BF89 /* CurrencyViewController.swift in Sources */,
-				10938F7D2212DC3A00F15F60 /* ShadowAndRadius.swift in Sources */,
+				1093E9FF221437D4008E7653 /* DesignableButton.swift in Sources */,
 				106D3A792213027C0048CFEC /* CustomTabBarViewController.swift in Sources */,
 				10938F7B2212DB7A00F15F60 /* PostLaunchViewController.swift in Sources */,
 				107F4EC22212FE0300E6BF89 /* TranslatorViewController.swift in Sources */,
+				1093EA012214381E008E7653 /* DesignableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

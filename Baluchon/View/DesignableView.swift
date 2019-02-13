@@ -1,26 +1,14 @@
 //
-//  ShadowAndRadius.swift
+//  DesignableView.swift
 //  Baluchon
 //
-//  Created by Jerome Krakus on 12/02/2019.
+//  Created by Jerome Krakus on 13/02/2019.
 //  Copyright © 2019 Jerome Krakus. All rights reserved.
 //
 
 import UIKit
 
-@IBDesignable
-class DesignableView: UIView {
-}
-
-@IBDesignable
-class DesignableButton: UIButton {
-}
-
-@IBDesignable
-class DesignableLabel: UILabel {
-}
-
-extension UIView {
+@IBDesignable class DesignableView: UIView {
     
     @IBInspectable
     var cornerRadius: CGFloat {
@@ -53,6 +41,16 @@ extension UIView {
     }
     
     @IBInspectable
+    var shadowRadius: CGFloat {
+        get {
+            return layer.shadowRadius
+        }
+        set {
+            layer.shadowRadius = newValue
+        }
+    }
+    
+    @IBInspectable
     var shadowColor: UIColor? {
         get {
             if let color = layer.shadowColor {
@@ -68,6 +66,5 @@ extension UIView {
             }
         }
     }
+    
 }
-
-
