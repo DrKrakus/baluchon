@@ -10,24 +10,24 @@ import UIKit
 
 class PostLaunchViewController: UIViewController {
     
+    // Set the light status bar
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // Outlets
-    @IBOutlet weak var iconBgk: DesignableView!
     @IBOutlet weak var iconBaluchon: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Animate the icon disparition
-        UIView.animate(withDuration: 0.2, animations: {
-            self.iconBaluchon.transform = CGAffineTransform(scaleX: 0, y: 0)
-        })
-        
-        // Animate the background resize
-        UIView.animate(withDuration: 0.3, animations: {
-            self.iconBgk.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        // Animate icon resize
+        UIView.animate(withDuration: 0.5, animations: {
+            self.iconBaluchon.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         }) { (_) in
             UIView.animate(withDuration: 0.3, animations: {
-                self.iconBgk.transform = CGAffineTransform(scaleX: 20, y: 20)
+                self.iconBaluchon.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+                self.iconBaluchon.alpha = 0
             }, completion: { (succes) in
                 // Navigate to the CurrencyViewController
                 if succes {

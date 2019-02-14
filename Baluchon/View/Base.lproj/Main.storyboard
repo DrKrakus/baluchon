@@ -18,40 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNv-zL-cLU" customClass="DesignableView" customModule="Baluchon" customModuleProvider="target">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="icon-splash" translatesAutoresizingMaskIntoConstraints="NO" id="csp-mc-12S">
                                 <rect key="frame" x="140.5" y="286.5" width="94" height="94"/>
-                                <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="icon-baluchon" translatesAutoresizingMaskIntoConstraints="NO" id="fAP-YG-YXa">
-                                        <rect key="frame" x="8" y="21" width="77" height="56"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.46274509803921571" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="fAP-YG-YXa" firstAttribute="leading" secondItem="dNv-zL-cLU" secondAttribute="leading" constant="8" id="Cji-Rz-BfU"/>
-                                    <constraint firstAttribute="trailing" secondItem="fAP-YG-YXa" secondAttribute="trailing" constant="9" id="GKk-ww-2F3"/>
-                                    <constraint firstAttribute="bottom" secondItem="fAP-YG-YXa" secondAttribute="bottom" constant="17" id="MwN-qt-1fv"/>
-                                    <constraint firstAttribute="height" constant="94" id="XUk-gn-ipi"/>
-                                    <constraint firstAttribute="width" constant="94" id="nRz-C4-3Mx"/>
-                                    <constraint firstItem="fAP-YG-YXa" firstAttribute="top" secondItem="dNv-zL-cLU" secondAttribute="top" constant="21" id="xbm-pc-Z6k"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.46274509800000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dNv-zL-cLU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZhY-oB-LPm"/>
-                            <constraint firstItem="dNv-zL-cLU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="en6-Jv-uKn"/>
+                            <constraint firstItem="csp-mc-12S" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="331-P7-vki"/>
+                            <constraint firstItem="csp-mc-12S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="o44-JA-4hk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="iconBaluchon" destination="fAP-YG-YXa" id="wBz-R7-YGI"/>
-                        <outlet property="iconBgk" destination="dNv-zL-cLU" id="Gog-56-GhA"/>
+                        <outlet property="iconBaluchon" destination="csp-mc-12S" id="Mvq-vV-5zU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -132,7 +111,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Sic-ch-2nr" userLabel="Devise Button">
                                                         <rect key="frame" x="0.0" y="0.0" width="48" height="23.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9Q-pT-J8n">
+                                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9Q-pT-J8n">
                                                                 <rect key="frame" x="0.0" y="0.0" width="36" height="23.5"/>
                                                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="20"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -147,7 +126,7 @@
                                                         <rect key="frame" x="0.0" y="28.5" width="277" height="56"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="48"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="light" returnKeyType="go" enablesReturnKeyAutomatically="YES" smartQuotesType="no"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="alert" returnKeyType="search" enablesReturnKeyAutomatically="YES" smartQuotesType="no"/>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -318,7 +297,7 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="28"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert" returnKeyType="search"/>
                                                     </textView>
                                                 </subviews>
                                                 <constraints>
@@ -415,19 +394,19 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lml-gx-KV7">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQH-Tx-Uo5">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQH-Tx-Uo5" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rac-FQ-XgM">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rac-FQ-XgM" userLabel="Header">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="112"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Météo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZJ-oH-pbq">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Météo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZJ-oH-pbq" userLabel="Title">
                                                         <rect key="frame" x="16" y="66" width="101" height="41"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="orc-eS-669">
+                                                    <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="orc-eS-669" userLabel="Background">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="112"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
@@ -444,12 +423,150 @@
                                                     <constraint firstAttribute="bottom" secondItem="IZJ-oH-pbq" secondAttribute="bottom" constant="5" id="vvv-LK-gDm"/>
                                                 </constraints>
                                             </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Q0R-g7-MWl" userLabel="Top View">
+                                                <rect key="frame" x="49" y="168.5" width="277" height="96.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW YORK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qt4-jQ-exN" userLabel="Dollar Sign">
+                                                        <rect key="frame" x="0.0" y="0.0" width="93" height="23.5"/>
+                                                        <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="20"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="a2M-vN-Lct" userLabel="Weather Details">
+                                                        <rect key="frame" x="0.0" y="28.5" width="277" height="68"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgM-1x-byN">
+                                                                <rect key="frame" x="0.0" y="0.0" width="79" height="68"/>
+                                                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="58"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IOa-wt-Izi" userLabel="Details View">
+                                                                <rect key="frame" x="94" y="13.5" width="183" height="41.5"/>
+                                                                <subviews>
+                                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="icon-weather-sunny" translatesAutoresizingMaskIntoConstraints="NO" id="VLT-Dy-rpU">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soleil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPs-4V-oRx">
+                                                                        <rect key="frame" x="0.0" y="25" width="33" height="16.5"/>
+                                                                        <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="14"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="a2M-vN-Lct" secondAttribute="bottom" id="0f5-pP-a5u"/>
+                                                    <constraint firstItem="a2M-vN-Lct" firstAttribute="leading" secondItem="Q0R-g7-MWl" secondAttribute="leading" id="Aoi-w4-EzE"/>
+                                                    <constraint firstItem="a2M-vN-Lct" firstAttribute="top" secondItem="Qt4-jQ-exN" secondAttribute="bottom" constant="5" id="DNm-xL-k7x"/>
+                                                    <constraint firstItem="Qt4-jQ-exN" firstAttribute="leading" secondItem="Q0R-g7-MWl" secondAttribute="leading" id="K3h-Wj-cSN"/>
+                                                    <constraint firstItem="Qt4-jQ-exN" firstAttribute="top" secondItem="Q0R-g7-MWl" secondAttribute="top" id="aeK-bN-gJS"/>
+                                                    <constraint firstAttribute="trailing" secondItem="a2M-vN-Lct" secondAttribute="trailing" id="jCf-og-VRc"/>
+                                                </constraints>
+                                            </stackView>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="img-separator" translatesAutoresizingMaskIntoConstraints="NO" id="Mot-vg-Xzy" userLabel="Separator">
+                                                <rect key="frame" x="49" y="295" width="277" height="28"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jf1-D4-bgg" userLabel="Bottom View">
+                                                <rect key="frame" x="49" y="343" width="277" height="96.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DRW-Dz-pRO" userLabel="City Button">
+                                                        <rect key="frame" x="0.0" y="0.0" width="63.5" height="23.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PARIS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kb2-GY-HSM">
+                                                                <rect key="frame" x="0.0" y="0.0" width="51.5" height="23.5"/>
+                                                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="20"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="icon-arrow-btn" translatesAutoresizingMaskIntoConstraints="NO" id="Fn9-Sy-4By">
+                                                                <rect key="frame" x="56.5" y="16.5" width="7" height="7"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="vn8-4I-f0r" userLabel="Weather Details">
+                                                        <rect key="frame" x="0.0" y="28.5" width="277" height="68"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uw1-iK-np4">
+                                                                <rect key="frame" x="0.0" y="0.0" width="79" height="68"/>
+                                                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="58"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="M2s-wF-RoL" userLabel="Details View">
+                                                                <rect key="frame" x="94" y="13.5" width="183" height="41.5"/>
+                                                                <subviews>
+                                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="icon-weather-cloudy-rainy" translatesAutoresizingMaskIntoConstraints="NO" id="lKK-Pr-rRt">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nuageux, Pluie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egi-FD-vrH">
+                                                                        <rect key="frame" x="0.0" y="25" width="89.5" height="16.5"/>
+                                                                        <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="14"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="vn8-4I-f0r" secondAttribute="bottom" id="FBx-us-VAA"/>
+                                                    <constraint firstItem="vn8-4I-f0r" firstAttribute="leading" secondItem="jf1-D4-bgg" secondAttribute="leading" id="P7G-V7-wx3"/>
+                                                    <constraint firstItem="vn8-4I-f0r" firstAttribute="top" secondItem="DRW-Dz-pRO" secondAttribute="bottom" constant="5" id="Ry4-2W-ATj"/>
+                                                    <constraint firstItem="DRW-Dz-pRO" firstAttribute="leading" secondItem="jf1-D4-bgg" secondAttribute="leading" id="cva-gJ-tM1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="vn8-4I-f0r" secondAttribute="trailing" id="rM2-zi-bIa"/>
+                                                    <constraint firstItem="DRW-Dz-pRO" firstAttribute="top" secondItem="jf1-D4-bgg" secondAttribute="top" id="zRi-dz-v0r"/>
+                                                </constraints>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0J4-Ns-PXw" userLabel="Button Translator" customClass="DesignableButton" customModule="Baluchon" customModuleProvider="target">
+                                                <rect key="frame" x="63.5" y="514" width="248" height="54"/>
+                                                <color key="backgroundColor" red="0.0" green="0.46274509800000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="248" id="Xjt-z6-rtj"/>
+                                                    <constraint firstAttribute="height" constant="54" id="aUr-tH-Fb2"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="20"/>
+                                                <state key="normal" title="Comparer la météo">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="27"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                        <real key="value" value="0.20000000000000001"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                        <size key="value" width="0.0" height="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="Rac-FQ-XgM" firstAttribute="top" secondItem="iQH-Tx-Uo5" secondAttribute="top" id="Ame-SA-KmB"/>
+                                            <constraint firstItem="Mot-vg-Xzy" firstAttribute="centerY" secondItem="iQH-Tx-Uo5" secondAttribute="centerY" id="CCk-wx-lu9"/>
                                             <constraint firstItem="Rac-FQ-XgM" firstAttribute="leading" secondItem="iQH-Tx-Uo5" secondAttribute="leading" id="Exf-mG-lpS"/>
+                                            <constraint firstItem="Q0R-g7-MWl" firstAttribute="centerX" secondItem="iQH-Tx-Uo5" secondAttribute="centerX" id="Nnz-gs-fst"/>
+                                            <constraint firstItem="Mot-vg-Xzy" firstAttribute="centerX" secondItem="iQH-Tx-Uo5" secondAttribute="centerX" id="Pik-Q2-41N"/>
+                                            <constraint firstItem="Q0R-g7-MWl" firstAttribute="width" secondItem="Mot-vg-Xzy" secondAttribute="width" id="fmE-pZ-kcV"/>
+                                            <constraint firstItem="jf1-D4-bgg" firstAttribute="width" secondItem="Mot-vg-Xzy" secondAttribute="width" id="gxP-6R-G6G"/>
+                                            <constraint firstItem="0J4-Ns-PXw" firstAttribute="centerX" secondItem="iQH-Tx-Uo5" secondAttribute="centerX" id="ha0-3m-U5a"/>
+                                            <constraint firstItem="jf1-D4-bgg" firstAttribute="top" secondItem="Mot-vg-Xzy" secondAttribute="bottom" constant="20" id="nIy-QP-7Ez"/>
                                             <constraint firstAttribute="trailing" secondItem="Rac-FQ-XgM" secondAttribute="trailing" id="rAe-OM-xLo"/>
+                                            <constraint firstItem="jf1-D4-bgg" firstAttribute="centerX" secondItem="iQH-Tx-Uo5" secondAttribute="centerX" id="s95-In-5rm"/>
+                                            <constraint firstAttribute="bottom" secondItem="0J4-Ns-PXw" secondAttribute="bottom" constant="50" id="vdY-UY-j53"/>
+                                            <constraint firstItem="Mot-vg-Xzy" firstAttribute="top" secondItem="Q0R-g7-MWl" secondAttribute="bottom" constant="30" id="yT9-M0-UoX"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -503,10 +620,12 @@
     </scenes>
     <resources>
         <image name="icon-arrow-btn" width="7" height="7"/>
-        <image name="icon-baluchon" width="77" height="56"/>
         <image name="icon-currency" width="32" height="26"/>
+        <image name="icon-splash" width="94" height="94"/>
         <image name="icon-translator" width="30" height="28"/>
         <image name="icon-weather" width="31" height="23"/>
+        <image name="icon-weather-cloudy-rainy" width="20" height="20"/>
+        <image name="icon-weather-sunny" width="20" height="20"/>
         <image name="img-separator" width="277" height="28"/>
     </resources>
 </document>
