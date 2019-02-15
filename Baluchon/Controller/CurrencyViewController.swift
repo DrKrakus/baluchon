@@ -9,7 +9,7 @@
 import UIKit
 
 class CurrencyViewController: UIViewController {
-    
+
     // Set the light status bar
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
