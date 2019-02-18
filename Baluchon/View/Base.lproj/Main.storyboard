@@ -166,6 +166,9 @@
                                                         <real key="value" value="15"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didTapConverterButton:" destination="JkO-oY-vJP" eventType="touchUpInside" id="Jv2-c9-39h"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -209,6 +212,14 @@
                     <tabBarItem key="tabBarItem" title="" image="icon-currency" id="1Z5-We-fbk">
                         <color key="badgeColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="amountTextField" destination="k0O-xL-U7I" id="obQ-sq-tXf"/>
+                        <outlet property="convertedAmountLabel" destination="g5X-E9-VjR" id="iop-or-yqm"/>
+                        <outlet property="converterButton" destination="lao-VX-cpK" id="9bS-Aa-v1O"/>
+                        <outlet property="deviseButton" destination="Sic-ch-2nr" id="omI-cM-hCQ"/>
+                        <outlet property="headerView" destination="dtZ-jO-f1O" id="0AG-u8-b9X"/>
+                        <outlet property="scrollView" destination="dnB-A4-jD2" id="HST-35-dTc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AWY-er-g3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
