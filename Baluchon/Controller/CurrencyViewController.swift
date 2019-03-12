@@ -39,6 +39,8 @@ class CurrencyViewController: UIViewController, UITextFieldDelegate {
         // Change the textfield style
         setTextFieldStyle()
 
+        // Get currency from API
+        CurrencyService.getCurrency()
     }
 
     // When tapping inside the UITextField

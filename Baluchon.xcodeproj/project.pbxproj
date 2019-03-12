@@ -19,6 +19,8 @@
 		10EEBAEC2211A5E6009C6311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EEBAEB2211A5E6009C6311 /* AppDelegate.swift */; };
 		10EEBAF12211A5E6009C6311 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EEBAEF2211A5E6009C6311 /* Main.storyboard */; };
 		10EEBAF32211A5E7009C6311 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10EEBAF22211A5E7009C6311 /* Assets.xcassets */; };
+		4843B8F42237EDA2000D3AC7 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4843B8F32237EDA2000D3AC7 /* CurrencyService.swift */; };
+		4843B8F62237F264000D3AC7 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4843B8F52237F264000D3AC7 /* Currency.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		10EEBAF02211A5E6009C6311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		10EEBAF22211A5E7009C6311 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10EEBAF72211A5E7009C6311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4843B8F32237EDA2000D3AC7 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
+		4843B8F52237F264000D3AC7 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 		48DEA8C322371A7600AB8315 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4843B8F32237EDA2000D3AC7 /* CurrencyService.swift */,
+				4843B8F52237F264000D3AC7 /* Currency.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -212,9 +218,11 @@
 			files = (
 				10EEBAEC2211A5E6009C6311 /* AppDelegate.swift in Sources */,
 				107F4EC42212FE3F00E6BF89 /* WeatherViewController.swift in Sources */,
+				4843B8F42237EDA2000D3AC7 /* CurrencyService.swift in Sources */,
 				107F4EC02212EE6400E6BF89 /* CurrencyViewController.swift in Sources */,
 				1093E9FF221437D4008E7653 /* DesignableButton.swift in Sources */,
 				106D3A792213027C0048CFEC /* CustomTabBarViewController.swift in Sources */,
+				4843B8F62237F264000D3AC7 /* Currency.swift in Sources */,
 				10938F7B2212DB7A00F15F60 /* PostLaunchViewController.swift in Sources */,
 				107F4EC22212FE0300E6BF89 /* TranslatorViewController.swift in Sources */,
 				1093EA012214381E008E7653 /* DesignableView.swift in Sources */,
