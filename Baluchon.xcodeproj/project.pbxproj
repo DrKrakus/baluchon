@@ -19,26 +19,7 @@
 		10EEBAEC2211A5E6009C6311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EEBAEB2211A5E6009C6311 /* AppDelegate.swift */; };
 		10EEBAF12211A5E6009C6311 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EEBAEF2211A5E6009C6311 /* Main.storyboard */; };
 		10EEBAF32211A5E7009C6311 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10EEBAF22211A5E7009C6311 /* Assets.xcassets */; };
-		10EEBB012211A5E7009C6311 /* BaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EEBB002211A5E7009C6311 /* BaluchonTests.swift */; };
-		10EEBB0C2211A5E7009C6311 /* BaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EEBB0B2211A5E7009C6311 /* BaluchonUITests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		10EEBAFD2211A5E7009C6311 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 10EEBAE02211A5E6009C6311 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 10EEBAE72211A5E6009C6311;
-			remoteInfo = Baluchon;
-		};
-		10EEBB082211A5E7009C6311 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 10EEBAE02211A5E6009C6311 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 10EEBAE72211A5E6009C6311;
-			remoteInfo = Baluchon;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1034C0B022141F480050BC1E /* DIN Alternate Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN Alternate Bold.otf"; sourceTree = "<group>"; };
@@ -55,30 +36,10 @@
 		10EEBAF02211A5E6009C6311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		10EEBAF22211A5E7009C6311 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10EEBAF72211A5E7009C6311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10EEBAFC2211A5E7009C6311 /* BaluchonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaluchonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		10EEBB002211A5E7009C6311 /* BaluchonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonTests.swift; sourceTree = "<group>"; };
-		10EEBB022211A5E7009C6311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10EEBB072211A5E7009C6311 /* BaluchonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaluchonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		10EEBB0B2211A5E7009C6311 /* BaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonUITests.swift; sourceTree = "<group>"; };
-		10EEBB0D2211A5E7009C6311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		10EEBAE52211A5E6009C6311 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		10EEBAF92211A5E7009C6311 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		10EEBB042211A5E7009C6311 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -100,8 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				10EEBAEA2211A5E6009C6311 /* Baluchon */,
-				10EEBAFF2211A5E7009C6311 /* BaluchonTests */,
-				10EEBB0A2211A5E7009C6311 /* BaluchonUITests */,
 				10EEBAE92211A5E6009C6311 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -110,8 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				10EEBAE82211A5E6009C6311 /* Baluchon.app */,
-				10EEBAFC2211A5E7009C6311 /* BaluchonTests.xctest */,
-				10EEBB072211A5E7009C6311 /* BaluchonUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,39 +77,14 @@
 			isa = PBXGroup;
 			children = (
 				1034C0AF22141EFA0050BC1E /* Font */,
-				10EEBB1B2211A5FE009C6311 /* Controller */,
+				48DEA8C322371A7600AB8315 /* Model */,
 				10EEBB1A2211A5F9009C6311 /* View */,
-				10EEBB192211A5EE009C6311 /* Model */,
+				10EEBB1B2211A5FE009C6311 /* Controller */,
 				10EEBAEB2211A5E6009C6311 /* AppDelegate.swift */,
 				10EEBAF22211A5E7009C6311 /* Assets.xcassets */,
 				10EEBAF72211A5E7009C6311 /* Info.plist */,
 			);
 			path = Baluchon;
-			sourceTree = "<group>";
-		};
-		10EEBAFF2211A5E7009C6311 /* BaluchonTests */ = {
-			isa = PBXGroup;
-			children = (
-				10EEBB002211A5E7009C6311 /* BaluchonTests.swift */,
-				10EEBB022211A5E7009C6311 /* Info.plist */,
-			);
-			path = BaluchonTests;
-			sourceTree = "<group>";
-		};
-		10EEBB0A2211A5E7009C6311 /* BaluchonUITests */ = {
-			isa = PBXGroup;
-			children = (
-				10EEBB0B2211A5E7009C6311 /* BaluchonUITests.swift */,
-				10EEBB0D2211A5E7009C6311 /* Info.plist */,
-			);
-			path = BaluchonUITests;
-			sourceTree = "<group>";
-		};
-		10EEBB192211A5EE009C6311 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		10EEBB1A2211A5F9009C6311 /* View */ = {
@@ -178,6 +110,13 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		48DEA8C322371A7600AB8315 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -199,42 +138,6 @@
 			productReference = 10EEBAE82211A5E6009C6311 /* Baluchon.app */;
 			productType = "com.apple.product-type.application";
 		};
-		10EEBAFB2211A5E7009C6311 /* BaluchonTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 10EEBB132211A5E7009C6311 /* Build configuration list for PBXNativeTarget "BaluchonTests" */;
-			buildPhases = (
-				10EEBAF82211A5E7009C6311 /* Sources */,
-				10EEBAF92211A5E7009C6311 /* Frameworks */,
-				10EEBAFA2211A5E7009C6311 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				10EEBAFE2211A5E7009C6311 /* PBXTargetDependency */,
-			);
-			name = BaluchonTests;
-			productName = BaluchonTests;
-			productReference = 10EEBAFC2211A5E7009C6311 /* BaluchonTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		10EEBB062211A5E7009C6311 /* BaluchonUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 10EEBB162211A5E7009C6311 /* Build configuration list for PBXNativeTarget "BaluchonUITests" */;
-			buildPhases = (
-				10EEBB032211A5E7009C6311 /* Sources */,
-				10EEBB042211A5E7009C6311 /* Frameworks */,
-				10EEBB052211A5E7009C6311 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				10EEBB092211A5E7009C6311 /* PBXTargetDependency */,
-			);
-			name = BaluchonUITests;
-			productName = BaluchonUITests;
-			productReference = 10EEBB072211A5E7009C6311 /* BaluchonUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -247,14 +150,6 @@
 				TargetAttributes = {
 					10EEBAE72211A5E6009C6311 = {
 						CreatedOnToolsVersion = 10.1;
-					};
-					10EEBAFB2211A5E7009C6311 = {
-						CreatedOnToolsVersion = 10.1;
-						TestTargetID = 10EEBAE72211A5E6009C6311;
-					};
-					10EEBB062211A5E7009C6311 = {
-						CreatedOnToolsVersion = 10.1;
-						TestTargetID = 10EEBAE72211A5E6009C6311;
 					};
 				};
 			};
@@ -272,8 +167,6 @@
 			projectRoot = "";
 			targets = (
 				10EEBAE72211A5E6009C6311 /* Baluchon */,
-				10EEBAFB2211A5E7009C6311 /* BaluchonTests */,
-				10EEBB062211A5E7009C6311 /* BaluchonUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -287,20 +180,6 @@
 				10E4BF7D22157ABC00E41D15 /* LaunchScreen.storyboard in Resources */,
 				10EEBAF32211A5E7009C6311 /* Assets.xcassets in Resources */,
 				10EEBAF12211A5E6009C6311 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		10EEBAFA2211A5E7009C6311 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		10EEBB052211A5E7009C6311 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,36 +221,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		10EEBAF82211A5E7009C6311 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				10EEBB012211A5E7009C6311 /* BaluchonTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		10EEBB032211A5E7009C6311 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				10EEBB0C2211A5E7009C6311 /* BaluchonUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		10EEBAFE2211A5E7009C6311 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 10EEBAE72211A5E6009C6311 /* Baluchon */;
-			targetProxy = 10EEBAFD2211A5E7009C6311 /* PBXContainerItemProxy */;
-		};
-		10EEBB092211A5E7009C6311 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 10EEBAE72211A5E6009C6311 /* Baluchon */;
-			targetProxy = 10EEBB082211A5E7009C6311 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		10E4BF7B22157ABC00E41D15 /* LaunchScreen.storyboard */ = {
@@ -547,88 +397,6 @@
 			};
 			name = Release;
 		};
-		10EEBB142211A5E7009C6311 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LB6NT562ER;
-				INFOPLIST_FILE = BaluchonTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jeromkrakus.BaluchonTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Baluchon.app/Baluchon";
-			};
-			name = Debug;
-		};
-		10EEBB152211A5E7009C6311 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LB6NT562ER;
-				INFOPLIST_FILE = BaluchonTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jeromkrakus.BaluchonTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Baluchon.app/Baluchon";
-			};
-			name = Release;
-		};
-		10EEBB172211A5E7009C6311 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LB6NT562ER;
-				INFOPLIST_FILE = BaluchonUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jeromkrakus.BaluchonUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Baluchon;
-			};
-			name = Debug;
-		};
-		10EEBB182211A5E7009C6311 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LB6NT562ER;
-				INFOPLIST_FILE = BaluchonUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jeromkrakus.BaluchonUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Baluchon;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -646,24 +414,6 @@
 			buildConfigurations = (
 				10EEBB112211A5E7009C6311 /* Debug */,
 				10EEBB122211A5E7009C6311 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		10EEBB132211A5E7009C6311 /* Build configuration list for PBXNativeTarget "BaluchonTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				10EEBB142211A5E7009C6311 /* Debug */,
-				10EEBB152211A5E7009C6311 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		10EEBB162211A5E7009C6311 /* Build configuration list for PBXNativeTarget "BaluchonUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				10EEBB172211A5E7009C6311 /* Debug */,
-				10EEBB182211A5E7009C6311 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
