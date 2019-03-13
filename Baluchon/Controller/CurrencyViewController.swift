@@ -50,6 +50,44 @@ class CurrencyViewController: UIViewController, UITextFieldDelegate {
         deviseButton.addGestureRecognizer(tap)
     }
 
+    // Show currencies
+    @objc func showCurrencies(_ gesture: UIGestureRecognizer) {
+    }
+
+    private func convertCurrency() {
+        // Hiding the button and show the loader
+        converterButton.isHidden = true
+        loader.isHidden = false
+
+        CurrencyService.shared.getCurrency { (success, currency) in
+            // Showing the button and hide the loader
+            self.converterButton.isHidden = false
+            self.loader.isHidden = true
+
+            if success, let currency = currency {
+                let amountToConvert = Double(self.amountTextField.text!)!
+                let chosenCurrency = self.deviseLabel.text!
+
+                // First, convert chosenCurrency to EUR
+                let convertedToEUR = amountToConvert / currency.rates[chosenCurrency]!
+                // Then convert EUR to USD and String
+                var result = convertedToEUR * currency.rates["USD"]!
+
+                // Round it to 2 digits after the . max
+                result = Double(round(100*result)/100)
+
+                // Update the label with the result
+                self.convertedAmountLabel.text = String(result)
+            } else {
+                self.alertCurrencyFail()
+            }
+        }
+    }
+}
+
+// Keyboard management
+extension CurrencyViewController {
+
     // When tapping inside the UITextField
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         // Animations of headerView, scrollView and converterButton
@@ -69,6 +107,15 @@ class CurrencyViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 
+    // Limit the number of characters in the textField
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        guard let text = amountTextField.text else { return true }
+        let count = text.count + string.count - range.length
+        return count <= 7
+    }
+
     // When tapping the return key of the keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Check if the text is a valid double
@@ -78,12 +125,9 @@ class CurrencyViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         // Animations of headerView, scrollView and converterButton
         resetUI()
-
+        // Convert currency
+        convertCurrency()
         return true
-    }
-
-    // Show currencies
-    @objc func showCurrencies(_ gesture: UIGestureRecognizer) {
     }
 
     // Dismiss the keyboard when tap on screen
@@ -93,6 +137,7 @@ class CurrencyViewController: UIViewController, UITextFieldDelegate {
             amountTextField.resignFirstResponder()
             resetUI()
             setTextFieldStyle()
+            convertedAmountLabel.text = "0"
             return
         }
 
@@ -115,6 +160,35 @@ class CurrencyViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 
+    // Replacing the UI elements from origin
+    private func resetUI() {
+        UIView.animate(withDuration: 0.3) {
+            self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
+            self.headerView.alpha = 1
+            self.converterButton.transform = .identity
+        }
+
+        // Button converter is active or not
+        if amountTextField.text!.isEmpty {
+            converterButton.isEnabled = false
+        } else {
+            converterButton.isEnabled = true
+        }
+    }
+
+    // Reset the style of AmountTextField placeholder
+    private func setTextFieldStyle() {
+        // Set the placeholder
+        amountTextField.attributedPlaceholder =
+            NSAttributedString(string: "Tapez ici",
+                               attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        // Set the textfield opacity
+        amountTextField.alpha = 0.3
+    }
+}
+
+// Alerts
+extension CurrencyViewController {
     // Alert for wrong number
     private func alertForWrongNumber() {
         let alertVC = UIAlertController(title: "Oups!",
@@ -133,57 +207,5 @@ class CurrencyViewController: UIViewController, UITextFieldDelegate {
         let alertAction = UIAlertAction(title: "OK", style: .destructive)
         alertVC.addAction(alertAction)
         self.present(alertVC, animated: true)
-    }
-
-    // Replacing the UI elements from origin
-    private func resetUI() {
-        UIView.animate(withDuration: 0.3) {
-            self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
-            self.headerView.alpha = 1
-            self.converterButton.transform = .identity
-        }
-
-        // Button converter is active or not
-        if amountTextField.text!.isEmpty {
-            converterButton.isEnabled = false
-        } else {
-            converterButton.isEnabled = true
-        }
-    }
-
-    private func setTextFieldStyle() {
-        // Set the placeholder
-        amountTextField.attributedPlaceholder =
-            NSAttributedString(string: "Tapez ici",
-                               attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        // Set the textfield opacity
-        amountTextField.alpha = 0.3
-    }
-
-    private func convertCurrency() {
-        // Hiding the button and show the loader
-        converterButton.isHidden = true
-        loader.isHidden = false
-
-        CurrencyService.shared.getCurrency { (success, currency) in
-            // Showing the button and hide the loader
-            self.converterButton.isHidden = false
-            self.loader.isHidden = true
-
-            if success, let currency = currency {
-                let amountToConvert = Double(self.amountTextField.text!)!
-                let chosenCurrency = self.deviseLabel.text!
-
-                // First, convert chosenCurrency to EUR
-                let convertedToEUR = amountToConvert / currency.rates[chosenCurrency]!
-                // Then convert EUR to USD
-                let result = convertedToEUR * currency.rates["USD"]!
-
-                // Update the label with the result
-                self.convertedAmountLabel.text = String(result)
-            } else {
-                self.alertCurrencyFail()
-            }
-        }
     }
 }
