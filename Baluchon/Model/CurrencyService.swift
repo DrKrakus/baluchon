@@ -10,22 +10,30 @@ import Foundation
 
 class CurrencyService {
 
+    // Singleton pattern
+    static var shared = CurrencyService()
+    private init() {}
+
     // API url
     private static let currencyURL =
     URL(string: "http://data.fixer.io/api/latest?access_key=6b9f932eab2fb32e5e0c1b3b6a078c45")!
 
+    // Task
+    private var task: URLSessionDataTask?
+
     // Get currency from API
-    static func getCurrency(callback: @escaping (Bool, Currency?) -> Void) {
+    func getCurrency(callback: @escaping (Bool, Currency?) -> Void) {
 
         // Set request
-        var request = URLRequest(url: currencyURL)
+        var request = URLRequest(url: CurrencyService.currencyURL)
         request.httpMethod = "GET"
 
         // Set session
         let session = URLSession(configuration: .default)
 
         // Set task
-        let task = session.dataTask(with: request) { (data, response, error) in
+        task?.cancel()
+        task = session.dataTask(with: request) { (data, response, error) in
 
             // Return in the main queue
             DispatchQueue.main.async {
@@ -49,6 +57,6 @@ class CurrencyService {
             }
         }
 
-        task.resume()
+        task?.resume()
     }
 }
