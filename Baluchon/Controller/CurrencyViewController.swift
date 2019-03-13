@@ -39,8 +39,9 @@ class CurrencyViewController: UIViewController, UITextFieldDelegate {
         // Change the textfield style
         setTextFieldStyle()
 
-        // Get currency from API
-        CurrencyService.getCurrency()
+        // Create and add the gesture for deviseButton
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.showCurrencies(_:)))
+        deviseButton.addGestureRecognizer(tap)
     }
 
     // When tapping inside the UITextField
@@ -72,6 +73,17 @@ class CurrencyViewController: UIViewController, UITextFieldDelegate {
         resetUI()
 
         return true
+    }
+
+    // Show currencies
+    @objc func showCurrencies(_ gesture: UIGestureRecognizer) {
+        CurrencyService.getCurrency { (success, currency) in
+            if success, let currency = currency {
+                print(currency.rates.keys)
+            } else {
+                // Afficher un message d'erreur
+            }
+        }
     }
 
     // Dismiss the keyboard

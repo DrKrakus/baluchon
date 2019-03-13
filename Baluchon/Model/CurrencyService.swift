@@ -15,7 +15,7 @@ class CurrencyService {
     URL(string: "http://data.fixer.io/api/latest?access_key=6b9f932eab2fb32e5e0c1b3b6a078c45")!
 
     // Get currency from API
-    static func getCurrency() {
+    static func getCurrency(callback: @escaping (Bool, Currency?) -> Void) {
 
         // Set request
         var request = URLRequest(url: currencyURL)
@@ -27,19 +27,26 @@ class CurrencyService {
         // Set task
         let task = session.dataTask(with: request) { (data, response, error) in
 
-            guard let data = data, error == nil else {
-                return
-            }
+            // Return in the main queue
+            DispatchQueue.main.async {
+                guard let data = data, error == nil else {
+                    callback(false, nil)
+                    return
+                }
 
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                return
-            }
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    callback(false, nil)
+                    return
+                }
 
-            guard let responseJSON = try? JSONDecoder().decode(Currency.self, from: data) else {
-                return
-            }
+                guard let currency = try? JSONDecoder().decode(Currency.self, from: data) else {
+                    callback(false, nil)
+                    return
+                }
 
-            print(responseJSON)
+                // Callback true
+                callback(true, currency)
+            }
         }
 
         task.resume()
