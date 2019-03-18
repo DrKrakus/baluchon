@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class CurrencyViewController: UIViewController, UITextFieldDelegate {
+class CurrencyViewController: UIViewController, isAbleToReceiveData {
 
     // Set the light status bar
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -51,9 +51,15 @@ class CurrencyViewController: UIViewController, UITextFieldDelegate {
     }
 
     // Show currencies
+    // swiftlint:disable all
     @objc func showCurrencies(_ gesture: UIGestureRecognizer) {
+        let sb = self.storyboard?.instantiateViewController(withIdentifier: "CurrenciesList")
+        let vc = sb as! CurrenciesListViewController
+        vc.delegate = self
+        self.present(vc, animated: false)
     }
 
+    // Get and convert Currency
     private func convertCurrency() {
         // Hiding the button and show the loader
         converterButton.isHidden = true
@@ -83,10 +89,14 @@ class CurrencyViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+
+    func pass(_ data: String) {
+        self.deviseLabel.text! = data
+    }
 }
 
 // Keyboard management
-extension CurrencyViewController {
+extension CurrencyViewController: UITextFieldDelegate {
 
     // When tapping inside the UITextField
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -152,11 +162,14 @@ extension CurrencyViewController {
     private func checkForValidDouble() -> Bool {
         // Check if the text is a valid double
         guard let text = amountTextField.text else { return false }
-        guard text.range(of: "^(([1-9]\\d*)|(0))(\\.\\d{1,2})?$", options: .regularExpression) != nil else {
+        guard text.range(of: "^(([1-9]\\d*)|(0))((\\.)|(\\,)\\d{1,2})?$",
+                         options: .regularExpression) != nil else {
             alertForWrongNumber()
             return false
         }
-
+        // replace , by a .
+        let replaced = text.replacingOccurrences(of: ",", with: ".")
+        self.amountTextField.text = replaced
         return true
     }
 
@@ -208,4 +221,9 @@ extension CurrencyViewController {
         alertVC.addAction(alertAction)
         self.present(alertVC, animated: true)
     }
+}
+
+// Protocol for receive currency choice
+protocol isAbleToReceiveData {
+    func pass(_ data: String)
 }

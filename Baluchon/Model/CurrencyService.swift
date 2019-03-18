@@ -47,10 +47,22 @@ class CurrencyService {
                     return
                 }
 
-                guard let currency = try? JSONDecoder().decode(Currency.self, from: data) else {
+                guard let responseJSON = try? JSONDecoder().decode(Currency.self, from: data) else {
                     callback(false, nil)
                     return
                 }
+
+                // Creating Currency
+                let success = responseJSON.success
+                let timestamp = responseJSON.timestamp
+                let base = responseJSON.base
+                let date = responseJSON.date
+                let rates = responseJSON.rates
+                let currency = Currency(success: success,
+                                        timestamp: timestamp,
+                                        base: base,
+                                        date: date,
+                                        rates: rates)
 
                 // Callback true
                 callback(true, currency)

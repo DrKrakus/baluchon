@@ -21,6 +21,7 @@
 		10EEBAF32211A5E7009C6311 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10EEBAF22211A5E7009C6311 /* Assets.xcassets */; };
 		4843B8F42237EDA2000D3AC7 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4843B8F32237EDA2000D3AC7 /* CurrencyService.swift */; };
 		4843B8F62237F264000D3AC7 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4843B8F52237F264000D3AC7 /* Currency.swift */; };
+		486AB394223FC5EB004985AA /* CurrenciesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AB393223FC5EB004985AA /* CurrenciesListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		10EEBAF72211A5E7009C6311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4843B8F32237EDA2000D3AC7 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
 		4843B8F52237F264000D3AC7 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		486AB393223FC5EB004985AA /* CurrenciesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,10 +108,11 @@
 			isa = PBXGroup;
 			children = (
 				10938F7A2212DB7A00F15F60 /* PostLaunchViewController.swift */,
+				106D3A782213027C0048CFEC /* CustomTabBarViewController.swift */,
 				107F4EBF2212EE6400E6BF89 /* CurrencyViewController.swift */,
+				486AB393223FC5EB004985AA /* CurrenciesListViewController.swift */,
 				107F4EC12212FE0300E6BF89 /* TranslatorViewController.swift */,
 				107F4EC32212FE3F00E6BF89 /* WeatherViewController.swift */,
-				106D3A782213027C0048CFEC /* CustomTabBarViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				106D3A792213027C0048CFEC /* CustomTabBarViewController.swift in Sources */,
 				4843B8F62237F264000D3AC7 /* Currency.swift in Sources */,
 				10938F7B2212DB7A00F15F60 /* PostLaunchViewController.swift in Sources */,
+				486AB394223FC5EB004985AA /* CurrenciesListViewController.swift in Sources */,
 				107F4EC22212FE0300E6BF89 /* TranslatorViewController.swift in Sources */,
 				1093EA012214381E008E7653 /* DesignableView.swift in Sources */,
 			);
