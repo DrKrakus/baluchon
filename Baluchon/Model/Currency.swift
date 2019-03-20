@@ -8,9 +8,12 @@
 
 import Foundation
 
-struct Currency: Codable {
-    let success: Bool
-    let timestamp: Int
-    let base, date: String
-    let rates: [String: Double]
+class Currency: Codable {
+    // Singleton pattern
+    static let shared = Currency()
+    private init() {}
+
+    // Properties
+    var base, date: String?
+    var rates: [String: Double]?
 }

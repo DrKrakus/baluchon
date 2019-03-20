@@ -138,7 +138,7 @@
                                                     <constraint firstItem="Sic-ch-2nr" firstAttribute="top" secondItem="MHe-1m-eM1" secondAttribute="top" id="yRB-Ca-Sc7"/>
                                                 </constraints>
                                             </stackView>
-                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="mcd-Qw-hAL">
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="mcd-Qw-hAL">
                                                 <rect key="frame" x="177.5" y="531" width="20" height="20"/>
                                             </activityIndicatorView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lao-VX-cpK" userLabel="Button converter" customClass="DesignableButton" customModule="Baluchon" customModuleProvider="target">
@@ -265,8 +265,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="112" id="1Rn-Ze-CbH"/>
                                     <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="cOZ-E6-wZY" secondAttribute="trailing" constant="233" id="1ca-td-sUa"/>
-                                    <constraint firstItem="P3p-M8-M5N" firstAttribute="top" secondItem="Ry9-jA-jNl" secondAttribute="top" constant="48" id="38G-Td-j1U"/>
                                     <constraint firstAttribute="bottom" secondItem="PvQ-Ms-DSV" secondAttribute="bottom" id="5KO-Cs-2m1"/>
+                                    <constraint firstItem="P3p-M8-M5N" firstAttribute="top" secondItem="Ry9-jA-jNl" secondAttribute="top" constant="48" id="HsZ-9M-dpU"/>
                                     <constraint firstItem="PvQ-Ms-DSV" firstAttribute="leading" secondItem="Ry9-jA-jNl" secondAttribute="leading" id="Qse-i0-WkH"/>
                                     <constraint firstItem="cOZ-E6-wZY" firstAttribute="leading" secondItem="Ry9-jA-jNl" secondAttribute="leading" constant="16" id="X2X-eS-r3y"/>
                                     <constraint firstAttribute="trailing" secondItem="P3p-M8-M5N" secondAttribute="trailing" constant="16" id="fpd-Ms-rZi"/>

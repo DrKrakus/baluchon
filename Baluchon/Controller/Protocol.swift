@@ -9,6 +9,6 @@
 import Foundation
 
 // Protocol for receive currency choice
-protocol isAbleToReceiveData: NSObjectProtocol {
+protocol IsAbleToReceiveData: NSObjectProtocol {
     func pass(_ data: String)
 }

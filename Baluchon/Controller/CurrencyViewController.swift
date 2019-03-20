@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class CurrencyViewController: UIViewController, isAbleToReceiveData {
+class CurrencyViewController: UIViewController {
 
     // Set the light status bar
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -58,41 +58,60 @@ class CurrencyViewController: UIViewController, isAbleToReceiveData {
         vc.delegate = self
         self.present(vc, animated: false)
     }
-
-    // Get and convert Currency
+    
     private func convertCurrency() {
-        // Hiding the button and show the loader
-        converterButton.isHidden = true
-        loader.isHidden = false
+        // Checking the date
+        guard checkForSameDate() else {
+            // Hiding the button and show the loader
+            converterButton.isHidden = true
+            loader.isHidden = false
 
-        CurrencyService.shared.getCurrency { (success, currency) in
-            // Showing the button and hide the loader
-            self.converterButton.isHidden = false
-            self.loader.isHidden = true
-
-            if success, let currency = currency {
-                let amountToConvert = Double(self.amountTextField.text!)!
-                let chosenCurrency = self.deviseLabel.text!
-
-                // First, convert chosenCurrency to EUR
-                let convertedToEUR = amountToConvert / currency.rates[chosenCurrency]!
-                // Then convert EUR to USD and String
-                var result = convertedToEUR * currency.rates["USD"]!
-
-                // Round it to 2 digits after the . max
-                result = Double(round(100*result)/100)
-
-                // Update the label with the result
-                self.convertedAmountLabel.text = String(result)
-            } else {
-                self.alertCurrencyFail()
+            // If not the same date
+            CurrencyService.shared.getCurrency { (success) in
+                // Showing the button and hide the loader
+                self.converterButton.isHidden = false
+                self.loader.isHidden = true
+                
+                if success {
+                    self.convertingCurrency()
+                } else {
+                    self.alertCurrencyFail()
+                }
             }
+            return
         }
+
+        // If the same date
+        convertingCurrency()
     }
 
-    // Recieve Data from another VC
-    func pass(_ data: String) {
-        self.deviseLabel.text! = data
+    // Check the date
+    private func checkForSameDate() -> Bool {
+        // Get the current date and compare
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let date = formatter.string(from: Date())
+        
+        guard let apiDate = Currency.shared.date, apiDate == date else { return false }
+        
+        return true
+    }
+
+    // Convert Currency
+    private func convertingCurrency() {
+        let amountToConvert = Double(amountTextField.text!)!
+        let chosenCurrency = deviseLabel.text!
+        
+        // First, convert chosenCurrency to EUR
+        let convertedToEUR = amountToConvert / Currency.shared.rates![chosenCurrency]!
+        // Then convert EUR to USD and String
+        var result = convertedToEUR * Currency.shared.rates!["USD"]!
+        
+        // Round it to 2 digits after the . max
+        result = Double(round(100*result)/100)
+        
+        // Update the label with the result
+        self.convertedAmountLabel.text = String(result)
     }
 }
 
@@ -163,7 +182,7 @@ extension CurrencyViewController: UITextFieldDelegate {
     private func checkForValidDouble() -> Bool {
         // Check if the text is a valid double
         guard let text = amountTextField.text else { return false }
-        guard text.range(of: "^(([1-9]\\d*)|(0))((\\.)|(\\,)\\d{1,2})?$",
+        guard text.range(of: "^(([1-9]\\d*)|(0))(((\\.)|(\\,))\\d{1,2})?$",
                          options: .regularExpression) != nil else {
             alertForWrongNumber()
             return false
@@ -180,6 +199,7 @@ extension CurrencyViewController: UITextFieldDelegate {
             self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
             self.headerView.alpha = 1
             self.converterButton.transform = .identity
+            self.loader.transform = .identity
         }
 
         // Button converter is active or not
@@ -201,12 +221,22 @@ extension CurrencyViewController: UITextFieldDelegate {
     }
 }
 
+// Protocol
+extension CurrencyViewController: IsAbleToReceiveData {
+    // Recieve Data from another VC
+    func pass(_ data: String) {
+        deviseLabel.text! = data
+        // Then convert again
+        convertingCurrency()
+    }
+}
+
 // Alerts
 extension CurrencyViewController {
     // Alert for wrong number
     private func alertForWrongNumber() {
         let alertVC = UIAlertController(title: "Oups!",
-                                        message: "Veuillez entrer un chiffre correct (ex: 9.50)",
+                                        message: "Veuillez entrer un chiffre correct.",
                                         preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .destructive)
         alertVC.addAction(alertAction)
