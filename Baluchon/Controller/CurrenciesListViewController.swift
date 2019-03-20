@@ -30,6 +30,15 @@ class CurrenciesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Change the separator and scroll color
+        currenciesTableView.separatorColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.3004066781)
+        currenciesTableView.indicatorStyle = .white
+
+        // Change the background color for cells
+        let clearView = UIView()
+        clearView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        UITableViewCell.appearance().selectedBackgroundView = clearView
+
         // Get currencies list
         getCurrencyList()
     }
@@ -38,7 +47,6 @@ class CurrenciesListViewController: UIViewController {
     private func getCurrencyList() {
         // Check for same date
         guard checkForSameDate() else {
-            print("API")
             // Get currencies list from API if note same date
             CurrencyService.shared.getCurrency { (success) in
                 if success {
@@ -50,7 +58,6 @@ class CurrenciesListViewController: UIViewController {
             return
         }
 
-        print("NOT API")
         // If same date
         self.fillCurrencies()
     }
@@ -94,14 +101,14 @@ extension CurrenciesListViewController: UITableViewDelegate, UITableViewDataSour
 
         cell.textLabel?.text = currencies[indexPath.row]
         cell.textLabel?.textColor = .white
-        cell.selectionStyle = .none
 
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = currenciesTableView.cellForRow(at: indexPath)
-        delegate?.pass(cell!.textLabel!.text!)
+        let cell = currenciesTableView.cellForRow(at: indexPath)!
+        delegate?.pass(cell.textLabel!.text!)
+        currenciesTableView.deselectRow(at: indexPath, animated: true)
         self.dismiss(animated: true)
     }
 }

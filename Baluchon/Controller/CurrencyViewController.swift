@@ -226,8 +226,11 @@ extension CurrencyViewController: IsAbleToReceiveData {
     // Recieve Data from another VC
     func pass(_ data: String) {
         deviseLabel.text! = data
-        // Then convert again
-        convertingCurrency()
+        // Then convert again if the text is not empty
+        guard amountTextField.text!.isEmpty else {
+           convertingCurrency()
+            return
+        }
     }
 }
 
