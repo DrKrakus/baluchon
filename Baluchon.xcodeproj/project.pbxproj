@@ -22,6 +22,7 @@
 		4843B8F42237EDA2000D3AC7 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4843B8F32237EDA2000D3AC7 /* CurrencyService.swift */; };
 		4843B8F62237F264000D3AC7 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4843B8F52237F264000D3AC7 /* Currency.swift */; };
 		486AB394223FC5EB004985AA /* CurrenciesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AB393223FC5EB004985AA /* CurrenciesListViewController.swift */; };
+		488DA85D2242433F009B7168 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488DA85C2242433E009B7168 /* Protocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		4843B8F32237EDA2000D3AC7 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
 		4843B8F52237F264000D3AC7 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		486AB393223FC5EB004985AA /* CurrenciesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesListViewController.swift; sourceTree = "<group>"; };
+		488DA85C2242433E009B7168 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				486AB393223FC5EB004985AA /* CurrenciesListViewController.swift */,
 				107F4EC12212FE0300E6BF89 /* TranslatorViewController.swift */,
 				107F4EC32212FE3F00E6BF89 /* WeatherViewController.swift */,
+				488DA85C2242433E009B7168 /* Protocol.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				486AB394223FC5EB004985AA /* CurrenciesListViewController.swift in Sources */,
 				107F4EC22212FE0300E6BF89 /* TranslatorViewController.swift in Sources */,
 				1093EA012214381E008E7653 /* DesignableView.swift in Sources */,
+				488DA85D2242433F009B7168 /* Protocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

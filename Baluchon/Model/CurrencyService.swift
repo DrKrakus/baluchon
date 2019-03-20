@@ -15,7 +15,7 @@ class CurrencyService {
     private init() {}
 
     // API url
-    private static let currencyURL =
+    private let currencyURL =
     URL(string: "http://data.fixer.io/api/latest?access_key=6b9f932eab2fb32e5e0c1b3b6a078c45")!
 
     // Task
@@ -25,7 +25,7 @@ class CurrencyService {
     func getCurrency(callback: @escaping (Bool, Currency?) -> Void) {
 
         // Set request
-        var request = URLRequest(url: CurrencyService.currencyURL)
+        var request = URLRequest(url: CurrencyService().currencyURL)
         request.httpMethod = "GET"
 
         // Set session

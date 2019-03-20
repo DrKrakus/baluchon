@@ -10,10 +10,13 @@ import UIKit
 
 class CurrenciesListViewController: UIViewController {
 
-    // Delegate
-    // swiftlint:disable:next weak_delegate
-    var delegate: isAbleToReceiveData!
+    // Set the light status bar
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
+    // Delegate
+    weak var delegate: isAbleToReceiveData?
     // Currencies list array
     var currencies: [String] = []
     // UITableView link
@@ -33,7 +36,9 @@ class CurrenciesListViewController: UIViewController {
                 //Temporary array
                 var unsortedCurrencies = [String]()
                 // Fill the temporary array
-                for (key, _) in currency.rates { unsortedCurrencies.append(key) }
+                for (key, _) in currency.rates {
+                    unsortedCurrencies.append(key)
+                }
                 // Sorted array
                 self.currencies = unsortedCurrencies.sorted(by: <)
                 // Reload data
@@ -43,7 +48,7 @@ class CurrenciesListViewController: UIViewController {
             }
         }
 
-        // Assign delegate and datasource
+        // Assign delegate and datasource for the uitableview
         currenciesTableView.delegate = self
         currenciesTableView.dataSource = self
     }
@@ -68,7 +73,7 @@ extension CurrenciesListViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = currenciesTableView.cellForRow(at: indexPath)
 
-        delegate.pass(cell!.textLabel!.text!)
+        delegate?.pass(cell!.textLabel!.text!)
 
         self.dismiss(animated: true)
     }

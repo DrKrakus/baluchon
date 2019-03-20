@@ -90,6 +90,7 @@ class CurrencyViewController: UIViewController, isAbleToReceiveData {
         }
     }
 
+    // Recieve Data from another VC
     func pass(_ data: String) {
         self.deviseLabel.text! = data
     }
@@ -221,9 +222,4 @@ extension CurrencyViewController {
         alertVC.addAction(alertAction)
         self.present(alertVC, animated: true)
     }
-}
-
-// Protocol for receive currency choice
-protocol isAbleToReceiveData {
-    func pass(_ data: String)
 }
