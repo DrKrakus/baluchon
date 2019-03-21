@@ -107,8 +107,13 @@ extension CurrenciesListViewController: UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = currenciesTableView.cellForRow(at: indexPath)!
-        delegate?.pass(cell.textLabel!.text!)
-        currenciesTableView.deselectRow(at: indexPath, animated: true)
+        guard let devise = cell.textLabel?.text else { return }
+
+        // Save devise
+        UserDefaults.standard.set(devise, forKey: "devise")
+        // Pass the devise back to the CurrencyVC
+        delegate?.pass(devise)
+
         self.dismiss(animated: true)
     }
 }

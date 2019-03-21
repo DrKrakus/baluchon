@@ -45,6 +45,10 @@ class CurrencyViewController: UIViewController {
         // Change the textfield style
         setTextFieldStyle()
 
+        //User default devise
+        let devise = UserDefaults.standard.string(forKey: "devise") ?? "EUR"
+        deviseLabel.text = devise
+
         // Create and add the gesture for deviseButton
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.showCurrencies(_:)))
         deviseButton.addGestureRecognizer(tap)
