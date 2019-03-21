@@ -21,6 +21,7 @@
 		10EEBAF32211A5E7009C6311 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10EEBAF22211A5E7009C6311 /* Assets.xcassets */; };
 		4843B8F42237EDA2000D3AC7 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4843B8F32237EDA2000D3AC7 /* CurrencyService.swift */; };
 		4843B8F62237F264000D3AC7 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4843B8F52237F264000D3AC7 /* Currency.swift */; };
+		4866941122430FF90057E5EF /* SettingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4866941022430FF90057E5EF /* SettingService.swift */; };
 		486AB394223FC5EB004985AA /* CurrenciesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AB393223FC5EB004985AA /* CurrenciesListViewController.swift */; };
 		488DA85D2242433F009B7168 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488DA85C2242433E009B7168 /* Protocol.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		10EEBAF72211A5E7009C6311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4843B8F32237EDA2000D3AC7 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
 		4843B8F52237F264000D3AC7 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		4866941022430FF90057E5EF /* SettingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingService.swift; sourceTree = "<group>"; };
 		486AB393223FC5EB004985AA /* CurrenciesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesListViewController.swift; sourceTree = "<group>"; };
 		488DA85C2242433E009B7168 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +127,7 @@
 			children = (
 				4843B8F32237EDA2000D3AC7 /* CurrencyService.swift */,
 				4843B8F52237F264000D3AC7 /* Currency.swift */,
+				4866941022430FF90057E5EF /* SettingService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				486AB394223FC5EB004985AA /* CurrenciesListViewController.swift in Sources */,
 				107F4EC22212FE0300E6BF89 /* TranslatorViewController.swift in Sources */,
 				1093EA012214381E008E7653 /* DesignableView.swift in Sources */,
+				4866941122430FF90057E5EF /* SettingService.swift in Sources */,
 				488DA85D2242433F009B7168 /* Protocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

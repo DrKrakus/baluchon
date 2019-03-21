@@ -46,7 +46,7 @@ class CurrencyViewController: UIViewController {
         setTextFieldStyle()
 
         //User default devise
-        let devise = UserDefaults.standard.string(forKey: "devise") ?? "EUR"
+        let devise = SettingService.devise
         deviseLabel.text = devise
 
         // Create and add the gesture for deviseButton
