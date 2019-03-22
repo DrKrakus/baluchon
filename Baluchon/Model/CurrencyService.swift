@@ -52,13 +52,6 @@ class CurrencyService {
                     return
                 }
 
-                // Creating let for Currency
-//                let success = responseJSON.success
-//                let timestamp = responseJSON.timestamp
-//                let base = responseJSON.base
-//                let date = responseJSON.date
-//                let rates = responseJSON.rates
-
                 // Creating Currency
                 Currency.shared.base = responseJSON.base
                 Currency.shared.date = responseJSON.date

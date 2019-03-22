@@ -18,7 +18,26 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Load citylist.JSON
+        loadJson()
     }
 
+    private func loadJson() {
+        guard let url = Bundle.main.url(forResource: "citylist", withExtension: "json") else {
+            print("bad url")
+            return
+        }
+
+        guard let data = try? Data(contentsOf: url) else {
+            print("pas de data")
+            return
+        }
+
+        guard let json = try? JSONDecoder().decode(City.self, from: data) else {
+            print("fuck you")
+            return
+        }
+
+        print(json[0].name)
+    }
 }

@@ -22,6 +22,8 @@
 		4843B8F42237EDA2000D3AC7 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4843B8F32237EDA2000D3AC7 /* CurrencyService.swift */; };
 		4843B8F62237F264000D3AC7 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4843B8F52237F264000D3AC7 /* Currency.swift */; };
 		4866941122430FF90057E5EF /* SettingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4866941022430FF90057E5EF /* SettingService.swift */; };
+		4866941322453CA50057E5EF /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4866941222453CA50057E5EF /* City.swift */; };
+		4866941522453D5D0057E5EF /* citylist.json in Resources */ = {isa = PBXBuildFile; fileRef = 4866941422453D5D0057E5EF /* citylist.json */; };
 		486AB394223FC5EB004985AA /* CurrenciesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AB393223FC5EB004985AA /* CurrenciesListViewController.swift */; };
 		488DA85D2242433F009B7168 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488DA85C2242433E009B7168 /* Protocol.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +46,8 @@
 		4843B8F32237EDA2000D3AC7 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
 		4843B8F52237F264000D3AC7 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		4866941022430FF90057E5EF /* SettingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingService.swift; sourceTree = "<group>"; };
+		4866941222453CA50057E5EF /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		4866941422453D5D0057E5EF /* citylist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = citylist.json; sourceTree = "<group>"; };
 		486AB393223FC5EB004985AA /* CurrenciesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesListViewController.swift; sourceTree = "<group>"; };
 		488DA85C2242433E009B7168 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,12 +63,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1034C0AF22141EFA0050BC1E /* Font */ = {
+		1034C0AF22141EFA0050BC1E /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				4866941422453D5D0057E5EF /* citylist.json */,
 				1034C0B022141F480050BC1E /* DIN Alternate Bold.otf */,
 			);
-			path = Font;
+			path = Ressources;
 			sourceTree = "<group>";
 		};
 		10EEBADF2211A5E6009C6311 = {
@@ -86,7 +91,7 @@
 		10EEBAEA2211A5E6009C6311 /* Baluchon */ = {
 			isa = PBXGroup;
 			children = (
-				1034C0AF22141EFA0050BC1E /* Font */,
+				1034C0AF22141EFA0050BC1E /* Ressources */,
 				48DEA8C322371A7600AB8315 /* Model */,
 				10EEBB1A2211A5F9009C6311 /* View */,
 				10EEBB1B2211A5FE009C6311 /* Controller */,
@@ -128,6 +133,7 @@
 				4843B8F32237EDA2000D3AC7 /* CurrencyService.swift */,
 				4843B8F52237F264000D3AC7 /* Currency.swift */,
 				4866941022430FF90057E5EF /* SettingService.swift */,
+				4866941222453CA50057E5EF /* City.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1034C0B122141F490050BC1E /* DIN Alternate Bold.otf in Resources */,
+				4866941522453D5D0057E5EF /* citylist.json in Resources */,
 				10E4BF7D22157ABC00E41D15 /* LaunchScreen.storyboard in Resources */,
 				10EEBAF32211A5E7009C6311 /* Assets.xcassets in Resources */,
 				10EEBAF12211A5E6009C6311 /* Main.storyboard in Resources */,
@@ -229,6 +236,7 @@
 				107F4EC42212FE3F00E6BF89 /* WeatherViewController.swift in Sources */,
 				4843B8F42237EDA2000D3AC7 /* CurrencyService.swift in Sources */,
 				107F4EC02212EE6400E6BF89 /* CurrencyViewController.swift in Sources */,
+				4866941322453CA50057E5EF /* City.swift in Sources */,
 				1093E9FF221437D4008E7653 /* DesignableButton.swift in Sources */,
 				106D3A792213027C0048CFEC /* CustomTabBarViewController.swift in Sources */,
 				4843B8F62237F264000D3AC7 /* Currency.swift in Sources */,
