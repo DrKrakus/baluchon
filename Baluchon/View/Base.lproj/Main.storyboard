@@ -410,6 +410,9 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="28"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert" returnKeyType="search"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="EfL-wt-evG" id="neS-92-fmp"/>
+                                                        </connections>
                                                     </textView>
                                                 </subviews>
                                                 <constraints>
@@ -447,6 +450,9 @@
                                                         <real key="value" value="15"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didTapTranslatorButton:" destination="EfL-wt-evG" eventType="touchUpInside" id="eax-IY-0UK"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -490,6 +496,16 @@
                         <viewLayoutGuide key="safeArea" id="sMO-og-9TH"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icon-translator" id="VQB-kT-xNV"/>
+                    <connections>
+                        <outlet property="bottomView" destination="p1Y-3E-heK" id="GG3-v7-vxb"/>
+                        <outlet property="headerView" destination="0np-bE-QmT" id="Zk0-rH-SbS"/>
+                        <outlet property="scrollView" destination="Lxa-3O-oiu" id="zHb-zo-nnz"/>
+                        <outlet property="separatorView" destination="G7n-J3-nrJ" id="R9c-pg-zBO"/>
+                        <outlet property="sourceTextView" destination="Nex-sC-kJ4" id="hvL-7W-QPj"/>
+                        <outlet property="targetTextView" destination="ELS-pH-BmQ" id="oI3-en-OQF"/>
+                        <outlet property="topView" destination="oF4-8W-aZq" id="DG5-OL-ZcY"/>
+                        <outlet property="translatorButton" destination="aur-wm-EJZ" id="drz-9i-2IT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4d-j2-aeH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

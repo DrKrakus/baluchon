@@ -26,6 +26,8 @@
 		4866941522453D5D0057E5EF /* citylist.json in Resources */ = {isa = PBXBuildFile; fileRef = 4866941422453D5D0057E5EF /* citylist.json */; };
 		486AB394223FC5EB004985AA /* CurrenciesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486AB393223FC5EB004985AA /* CurrenciesListViewController.swift */; };
 		488DA85D2242433F009B7168 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488DA85C2242433E009B7168 /* Protocol.swift */; };
+		4894E41D2245A14C00F190CC /* TranslateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4894E41C2245A14C00F190CC /* TranslateService.swift */; };
+		4897A39E2246774500BD376A /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4897A39D2246774500BD376A /* Translate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		4866941422453D5D0057E5EF /* citylist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = citylist.json; sourceTree = "<group>"; };
 		486AB393223FC5EB004985AA /* CurrenciesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesListViewController.swift; sourceTree = "<group>"; };
 		488DA85C2242433E009B7168 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		4894E41C2245A14C00F190CC /* TranslateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateService.swift; sourceTree = "<group>"; };
+		4897A39D2246774500BD376A /* Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,8 @@
 				4843B8F52237F264000D3AC7 /* Currency.swift */,
 				4866941022430FF90057E5EF /* SettingService.swift */,
 				4866941222453CA50057E5EF /* City.swift */,
+				4894E41C2245A14C00F190CC /* TranslateService.swift */,
+				4897A39D2246774500BD376A /* Translate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,7 +244,9 @@
 				107F4EC02212EE6400E6BF89 /* CurrencyViewController.swift in Sources */,
 				4866941322453CA50057E5EF /* City.swift in Sources */,
 				1093E9FF221437D4008E7653 /* DesignableButton.swift in Sources */,
+				4894E41D2245A14C00F190CC /* TranslateService.swift in Sources */,
 				106D3A792213027C0048CFEC /* CustomTabBarViewController.swift in Sources */,
+				4897A39E2246774500BD376A /* Translate.swift in Sources */,
 				4843B8F62237F264000D3AC7 /* Currency.swift in Sources */,
 				10938F7B2212DB7A00F15F60 /* PostLaunchViewController.swift in Sources */,
 				486AB394223FC5EB004985AA /* CurrenciesListViewController.swift in Sources */,

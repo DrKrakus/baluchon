@@ -10,7 +10,7 @@ import Foundation
 
 class Currency: Codable {
     // Singleton pattern
-    static let shared = Currency()
+    static var shared = Currency()
     private init() {}
 
     // Properties
