@@ -23,7 +23,7 @@ xcuserdata/
 *.ipa
 *.dSYM.zip
 *.dSYM
-ApiKey.swift
+Baluchon/Model/ApiKey.swift
 
 # CocoaPods
 #
