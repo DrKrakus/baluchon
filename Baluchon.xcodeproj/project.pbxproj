@@ -28,6 +28,7 @@
 		488DA85D2242433F009B7168 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488DA85C2242433E009B7168 /* Protocol.swift */; };
 		4894E41D2245A14C00F190CC /* TranslateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4894E41C2245A14C00F190CC /* TranslateService.swift */; };
 		4897A39E2246774500BD376A /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4897A39D2246774500BD376A /* Translate.swift */; };
+		48FE8512224844E40008CED2 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FE8511224844E40008CED2 /* ApiKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		488DA85C2242433E009B7168 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		4894E41C2245A14C00F190CC /* TranslateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateService.swift; sourceTree = "<group>"; };
 		4897A39D2246774500BD376A /* Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
+		48FE8511224844E40008CED2 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				4866941222453CA50057E5EF /* City.swift */,
 				4894E41C2245A14C00F190CC /* TranslateService.swift */,
 				4897A39D2246774500BD376A /* Translate.swift */,
+				48FE8511224844E40008CED2 /* ApiKey.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10EEBAEC2211A5E6009C6311 /* AppDelegate.swift in Sources */,
+				48FE8512224844E40008CED2 /* ApiKey.swift in Sources */,
 				107F4EC42212FE3F00E6BF89 /* WeatherViewController.swift in Sources */,
 				4843B8F42237EDA2000D3AC7 /* CurrencyService.swift in Sources */,
 				107F4EC02212EE6400E6BF89 /* CurrencyViewController.swift in Sources */,

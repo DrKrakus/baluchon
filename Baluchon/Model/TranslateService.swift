@@ -23,7 +23,7 @@ class TranslateService {
 
         // Set request
         var request = URLRequest(url: url)
-        let body = "key=AIzaSyBab4AnT8ezqFOs0Dy5-aXRt6pm1ofzs28&q=\(Translate.shared.quote)&target=en"
+        let body = "key=\(ApiKey.google)&q=\(Translate.shared.quote)&target=en"
         request.httpMethod = "POST"
         request.httpBody = body.data(using: .utf8)
 
