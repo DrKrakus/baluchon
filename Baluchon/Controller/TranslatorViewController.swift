@@ -36,34 +36,25 @@ class TranslatorViewController: UIViewController {
         // Set the translate.quote
         Translate.shared.quote = sourceTextView.text
         targetTextView.text = Translate.shared.translatedQuote
+
+        // Set placeholders and tint color
+        setPlaceholders()
+        sourceTextView.tintColor = .white
     }
 
     // Translate func
     private func getTranslation() {
-        TranslateService.shared.getTranslation { (success, translateModel) in
+        TranslateService.shared.getTranslation { (success, response) in
             if success {
-                self.targetTextView.text = translateModel!.data.translations[0].translatedText
+                self.targetTextView.text = response!
             } else {
-                print("oups")
+                self.alertTranslationFail()
             }
         }
     }
-
 }
 
 extension TranslatorViewController: UITextViewDelegate {
-
-    // When the return key is taped
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if text == "\n" {
-            textView.resignFirstResponder()
-            resetUI()
-            Translate.shared.quote = textView.text
-            getTranslation()
-            return false
-        }
-        return true
-    }
 
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         // Animations of headerView, scrollView and converterButton
@@ -79,13 +70,45 @@ extension TranslatorViewController: UITextViewDelegate {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard(_:)))
         self.view.addGestureRecognizer(tap)
 
+        if sourceTextView.text == "Tapez ici" {
+            sourceTextView.alpha = 1
+            sourceTextView.text = ""
+        }
+
+        return true
+    }
+
+    // When the return key is taped
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            if sourceTextView.text == "" {
+                textView.resignFirstResponder()
+                resetUI()
+                setPlaceholders()
+                targetTextView.text = ""
+            } else {
+                textView.resignFirstResponder()
+                resetUI()
+                Translate.shared.quote = textView.text
+                getTranslation()
+            }
+            return false
+        }
         return true
     }
 
     @objc private func hideKeyboard(_ gesture: UITapGestureRecognizer) {
+
         sourceTextView.resignFirstResponder()
-        Translate.shared.quote = sourceTextView.text
         resetUI()
+
+        if sourceTextView.text == "" {
+            setPlaceholders()
+            targetTextView.text = ""
+        } else {
+            Translate.shared.quote = sourceTextView.text
+            getTranslation()
+        }
     }
 
     private func resetUI() {
@@ -96,5 +119,25 @@ extension TranslatorViewController: UITextViewDelegate {
             self.topView.alpha = 1
             self.separatorView.alpha = 1
         }
+    }
+
+    private func setPlaceholders() {
+        // Set the placeholder
+        sourceTextView.text = "Tapez ici"
+        // Set the textfield opacity
+        sourceTextView.alpha = 0.3
+    }
+}
+
+// Alerts
+extension TranslatorViewController {
+    // Alert for API fail
+    private func alertTranslationFail() {
+        let alertVC = UIAlertController(title: "Erreur réseau",
+                                        message: "Vérifiez votre réseau et ressayez.",
+                                        preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .destructive)
+        alertVC.addAction(alertAction)
+        self.present(alertVC, animated: true)
     }
 }

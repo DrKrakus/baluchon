@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Struct model for match api json response
 struct TranslateModel: Codable {
     let data: DataClass!
 }

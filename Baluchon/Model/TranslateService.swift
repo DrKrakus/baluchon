@@ -19,7 +19,7 @@ class TranslateService {
     private var task: URLSessionDataTask?
 
     // Get translation from API
-    func getTranslation(callback: @escaping (Bool, TranslateModel?) -> Void) {
+    func getTranslation(callback: @escaping (Bool, String?) -> Void) {
 
         // Set request
         var request = URLRequest(url: url)
@@ -51,8 +51,12 @@ class TranslateService {
                     return
                 }
 
+                // Converting for a valid aposthrope text
+                let stringToDecode = responseJSON.data.translations[0].translatedText
+                let validString = stringToDecode.replacingOccurrences(of: "&#39;", with: "'")
+
                 // Get the translation quote
-                callback(true, responseJSON)
+                callback(true, validString)
             }
         }
 
