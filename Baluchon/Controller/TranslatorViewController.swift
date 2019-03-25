@@ -27,6 +27,10 @@ class TranslatorViewController: UIViewController {
 
     // MARK: Action
     @IBAction func didTapTranslatorButton(_ sender: Any) {
+        guard sourceTextView.text != "Tapez ici" else {
+            return
+        }
+
         getTranslation()
     }
 
