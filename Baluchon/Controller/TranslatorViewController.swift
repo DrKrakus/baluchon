@@ -48,13 +48,33 @@ class TranslatorViewController: UIViewController {
 
     // Translate func
     private func getTranslation() {
-        TranslateService.shared.getTranslation { (success, response) in
+        TranslateService.shared.getTranslation { (success, stringToDecode) in
             if success {
-                self.targetTextView.text = response!
+                self.targetTextView.text = self.decodeString(stringToDecode!)
             } else {
                 self.alertTranslationFail()
             }
         }
+    }
+
+    private func decodeString(_ stringToDecode: String) -> String? {
+        // Decode html string to a utf8 string
+        let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
+            .documentType: NSAttributedString.DocumentType.html,
+            .characterEncoding: String.Encoding.utf8.rawValue
+        ]
+
+        guard let stringData = stringToDecode.data(using: .utf8) else {
+            return nil
+        }
+
+        guard let attributedString = try? NSAttributedString(data: stringData,
+                                                             options: options,
+                                                             documentAttributes: nil) else {
+            return nil
+        }
+
+        return attributedString.string
     }
 }
 

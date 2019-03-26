@@ -52,11 +52,10 @@ class TranslateService {
                 }
 
                 // Converting for a valid aposthrope text
-                let stringToDecode = responseJSON.data.translations[0].translatedText
-                let validString = stringToDecode.replacingOccurrences(of: "&#39;", with: "'")
+                let stringToDecode = responseJSON.data.translations.first!.translatedText
 
                 // Get the translation quote
-                callback(true, validString)
+                callback(true, stringToDecode)
             }
         }
 
