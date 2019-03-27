@@ -186,7 +186,7 @@ extension CurrencyViewController: UITextFieldDelegate {
     private func checkForValidDouble() -> Bool {
         // Check if the text is a valid double
         guard let text = amountTextField.text else { return false }
-        guard text.range(of: "^(([1-9]\\d*)|(0))(((\\.)|(\\,))\\d{1,2})?$",
+        guard text.range(of: #"^(([1-9]\d*)|(0))(((\.)|(\,))\d{1,2})?$"#,
                          options: .regularExpression) != nil else {
             alertForWrongNumber()
             return false
