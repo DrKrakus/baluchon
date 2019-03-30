@@ -24,6 +24,7 @@ class TranslatorViewController: UIViewController {
     @IBOutlet weak var separatorView: UIImageView!
     @IBOutlet weak var bottomView: UIStackView!
     @IBOutlet weak var sourceTextView: UITextView!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
 
     // MARK: Action
     @IBAction func didTapTranslatorButton(_ sender: Any) {
@@ -48,7 +49,15 @@ class TranslatorViewController: UIViewController {
 
     // Translate func
     private func getTranslation() {
+        // Hide button and show loader
+        loader.isHidden = false
+        translatorButton.isHidden = true
+
         TranslateService.shared.getTranslation { (success, stringToDecode) in
+            // Hide loader and show button
+            self.loader.isHidden = true
+            self.translatorButton.isHidden = false
+
             if success {
                 self.targetTextView.text = self.decodeString(stringToDecode!)
             } else {
@@ -85,6 +94,7 @@ extension TranslatorViewController: UITextViewDelegate {
         UIView.animate(withDuration: 0.3) {
             self.scrollView.contentOffset = CGPoint(x: 0, y: 200)
             self.translatorButton.transform = CGAffineTransform(translationX: 0, y: 200)
+            self.loader.transform = CGAffineTransform(translationX: 0, y: 200)
             self.headerView.alpha = 0
             self.topView.alpha = 0
             self.separatorView.alpha = 0
@@ -139,6 +149,7 @@ extension TranslatorViewController: UITextViewDelegate {
         UIView.animate(withDuration: 0.3) {
             self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
             self.translatorButton.transform = .identity
+            self.loader.transform = .identity
             self.headerView.alpha = 1
             self.topView.alpha = 1
             self.separatorView.alpha = 1

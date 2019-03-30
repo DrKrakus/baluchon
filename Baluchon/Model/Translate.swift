@@ -21,6 +21,7 @@ struct Translation: Codable {
     let translatedText, detectedSourceLanguage: String
 }
 
+// Translate model
 struct Translate {
     static var shared = Translate()
     private init() {}

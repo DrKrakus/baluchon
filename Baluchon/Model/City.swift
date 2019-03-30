@@ -8,9 +8,9 @@
 
 import Foundation
 // swiftlint:disable identifier_name
-typealias City = [CityElement]
+typealias Cities = [City]
 
-struct CityElement: Codable {
+struct City: Codable {
     let id: Int
     let name, country: String
 }

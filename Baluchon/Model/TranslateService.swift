@@ -22,10 +22,7 @@ class TranslateService {
     func getTranslation(callback: @escaping (Bool, String?) -> Void) {
 
         // Set request
-        var request = URLRequest(url: url)
-        let body = "key=\(ApiKey.google)&q=\(Translate.shared.quote)&target=en"
-        request.httpMethod = "POST"
-        request.httpBody = body.data(using: .utf8)
+        let request = getURLRequest()
 
         // Set session
         let session = URLSession(configuration: .default)
@@ -60,5 +57,15 @@ class TranslateService {
         }
 
         task?.resume()
+    }
+
+    private func getURLRequest() -> URLRequest {
+        var request = URLRequest(url: TranslateService.shared.url)
+        let body = "key=\(ApiKey.google)&q=\(Translate.shared.quote)&target=en"
+
+        request.httpMethod = "POST"
+        request.httpBody = body.data(using: .utf8)
+
+        return request
     }
 }
