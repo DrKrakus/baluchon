@@ -15,10 +15,11 @@ class WeatherService {
     private init() {}
 
     // API url
+    // swiftlint:disable line_length
     private let newYorkCity =
-    URL(string: "https://api.openweathermap.org/data/2.5/weather?\(ApiKey.openWeather)&units=metric&id=5128638")!
+    URL(string: "https://api.openweathermap.org/data/2.5/weather?\(ApiKey.openWeather)&units=metric&lang=fr&id=5128638")!
     private let selectedCity =
-    URL(string: "https://api.openweathermap.org/data/2.5/weather?\(ApiKey.openWeather)&units=metric&id=2968815")!
+    URL(string: "https://api.openweathermap.org/data/2.5/weather?\(ApiKey.openWeather)&units=metric&lang=fr&id=2968815")!
 
     // Task
     private var task: URLSessionDataTask?

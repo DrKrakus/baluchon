@@ -56,7 +56,7 @@ class CurrencyViewController: UIViewController {
 
     // Show currencies
     // swiftlint:disable all
-    @objc func showCurrencies(_ gesture: UIGestureRecognizer) {
+    @objc private func showCurrencies(_ gesture: UIGestureRecognizer) {
         let sb = self.storyboard?.instantiateViewController(withIdentifier: "CurrenciesList")
         let vc = sb as! CurrenciesListViewController
         vc.delegate = self

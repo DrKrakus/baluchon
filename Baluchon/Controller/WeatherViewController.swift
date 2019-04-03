@@ -22,51 +22,67 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var selectedCityDetail: UILabel!
     @IBOutlet weak var selectedCityWeatherIcon: UIImageView!
     @IBOutlet weak var citiesListButton: UIStackView!
+    @IBOutlet weak var selectedCityLabel: UILabel!
     @IBOutlet weak var compareWeatherButton: DesignableButton!
-
-//    var citiesArray: [City] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //User default selected city
+        let city = SettingService.city
+        selectedCityLabel.text = city
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.showCityList(_:)))
+        citiesListButton.addGestureRecognizer(tap)
+    }
+
+    @IBAction func didTapWeatherButton(_ sender: Any) {
+       getWeather()
+    }
+
+    private func getWeather() {
         WeatherService.shared.getWeather { (success, weatherDetail) in
             if success {
                 let weatherNY = weatherDetail!["newYork"]!
                 let weather = weatherDetail!["selectedCity"]!
 
                 self.newYorkTemp.text! = String(weatherNY.main.temp) + "°"
+                self.newYorkDetail.text! = weatherNY.weather[0].description
                 self.selectedCityTemp.text! = String(weather.main.temp) + "°"
+                self.selectedCityDetail.text! = weather.weather[0].description
             } else {
-                print("Erreur réseaux")
+                self.alertWeatherFail()
             }
         }
     }
 
-//    private func loadJson() {
-//        guard let url = Bundle.main.url(forResource: "citylist", withExtension: "json") else {
-//            print("bad url")
-//            return
-//        }
-//
-//        guard let data = try? Data(contentsOf: url) else {
-//            print("pas de data")
-//            return
-//        }
-//
-//        guard let json = try? JSONDecoder().decode(Cities.self, from: data) else {
-//            print("fuck you")
-//            return
-//        }
-//
-//        for city in json {
-//            let cityId = city.id
-//            let cityName = city.name
-//            let cityCountry = city.country
-//            let city = City(id: cityId, name: cityName, country: cityCountry)
-//
-//            self.citiesArray.append(city)
-//        }
-//
-//        print(self.citiesArray.first!)
-//    }
+    // Show city list
+    // swiftlint:disable all
+    @objc private func showCityList(_ gesture: UIGestureRecognizer) {
+        let sb = self.storyboard?.instantiateViewController(withIdentifier: "CityList")
+        let vc = sb as! CityListViewController
+        vc.delegate = self
+        self.present(vc, animated: false)
+    }
+}
+
+// Protocol
+extension WeatherViewController: IsAbleToReceiveData {
+    // Recieve Data from another VC
+    func pass(_ data: String) {
+        selectedCityLabel.text = data
+    }
+}
+
+// Alerts
+extension WeatherViewController {
+    // Alert for API fail
+    private func alertWeatherFail() {
+        let alertVC = UIAlertController(title: "Erreur réseau",
+                                        message: "Vérifiez votre réseau et ressayez.",
+                                        preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .destructive)
+        alertVC.addAction(alertAction)
+        self.present(alertVC, animated: true)
+    }
 }
