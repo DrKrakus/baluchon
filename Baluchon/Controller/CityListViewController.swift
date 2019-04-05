@@ -21,6 +21,7 @@ class CityListViewController: UIViewController {
     var citiesArray: [City] = []
     // Outlets
     @IBOutlet weak var cityListTableView: UITableView!
+    @IBOutlet weak var loadingView: DesignableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,10 @@ class CityListViewController: UIViewController {
         let clearView = UIView()
         clearView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         UITableViewCell.appearance().selectedBackgroundView = clearView
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
 
         // Get city list
         getCityList()
@@ -64,6 +69,9 @@ class CityListViewController: UIViewController {
 
             self.citiesArray.append(city)
         }
+
+        loadingView.isHidden = true
+        cityListTableView.reloadData()
     }
 }
 
@@ -84,12 +92,15 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = cityListTableView.cellForRow(at: indexPath)!
-        guard let selectedCity = cell.textLabel?.text else { return }
+        let selectedCity = citiesArray[indexPath.row]
+        let selectedCityID = String(selectedCity.id)
+        guard let selectedCityName = cell.textLabel?.text else { return }
 
-        // Save devise
-        SettingService.city = selectedCity
+        // Save city name & city ID
+        SettingService.city = selectedCityName
+        SettingService.cityID = selectedCityID
         // Pass the devise back to the CurrencyVC
-        delegate?.pass(selectedCity)
+        delegate?.passCity(selectedCity)
 
         self.dismiss(animated: true)
     }

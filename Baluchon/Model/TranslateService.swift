@@ -60,7 +60,7 @@ class TranslateService {
     }
 
     private func getURLRequest() -> URLRequest {
-        var request = URLRequest(url: TranslateService.shared.url)
+        var request = URLRequest(url: url)
         let body = "key=\(ApiKey.google)&q=\(Translate.shared.quote)&target=en"
 
         request.httpMethod = "POST"

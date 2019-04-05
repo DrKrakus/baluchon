@@ -13,6 +13,7 @@ class SettingService {
     private struct Keys {
         static let devise = "devise"
         static let city = "city"
+        static let cityID = "cityID"
     }
 
     static var devise: String {
@@ -30,6 +31,15 @@ class SettingService {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: Keys.city)
+        }
+    }
+
+    static var cityID: String {
+        get {
+            return UserDefaults.standard.string(forKey: Keys.cityID) ?? "6455259"
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Keys.cityID)
         }
     }
 }

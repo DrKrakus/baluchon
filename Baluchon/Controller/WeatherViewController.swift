@@ -24,32 +24,49 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var citiesListButton: UIStackView!
     @IBOutlet weak var selectedCityLabel: UILabel!
     @IBOutlet weak var compareWeatherButton: DesignableButton!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //User default selected city
-        let city = SettingService.city
-        selectedCityLabel.text = city
+        // User default selected city
+        selectedCityLabel.text = SettingService.city
 
+        // Get weather
+        getWeather()
+
+        // Add gesture for citiesListButton StackView
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.showCityList(_:)))
         citiesListButton.addGestureRecognizer(tap)
     }
 
+    // Action
     @IBAction func didTapWeatherButton(_ sender: Any) {
        getWeather()
     }
 
+    // Get weather from API
     private func getWeather() {
+        // Hiding the button and show the loader
+        compareWeatherButton.isHidden = true
+        loader.isHidden = false
+
+        // API call
         WeatherService.shared.getWeather { (success, weatherDetail) in
+            // Hiding the loader and show the button
+            self.compareWeatherButton.isHidden = false
+            self.loader.isHidden = true
+
             if success {
                 let weatherNY = weatherDetail!["newYork"]!
                 let weather = weatherDetail!["selectedCity"]!
 
                 self.newYorkTemp.text! = String(weatherNY.main.temp) + "°"
                 self.newYorkDetail.text! = weatherNY.weather[0].description
+                self.newYorkWeatherIcon.image = self.setImage(for: weatherNY.weather[0])
                 self.selectedCityTemp.text! = String(weather.main.temp) + "°"
                 self.selectedCityDetail.text! = weather.weather[0].description
+                self.selectedCityWeatherIcon.image = self.setImage(for: weather.weather[0])
             } else {
                 self.alertWeatherFail()
             }
@@ -64,13 +81,37 @@ class WeatherViewController: UIViewController {
         vc.delegate = self
         self.present(vc, animated: false)
     }
+
+    // Set image for weather description
+    private func setImage(for weatherElement: WeatherElement) -> UIImage {
+        // Main weather description
+        let main = weatherElement.main
+
+        // Change image to match main description
+        if main.contains("Clouds") {
+            return #imageLiteral(resourceName: "icon-weather-cloud")
+        } else if main.contains("Clear") {
+            return #imageLiteral(resourceName: "icon-weather-sunny")
+        } else if main.contains("Rain") {
+            return #imageLiteral(resourceName: "icon-weather-cloudy-rainy")
+        } else if main.contains("Thunderstorm") {
+            return #imageLiteral(resourceName: "icon-weather-thunder")
+        } else if main.contains("Snow") {
+            return #imageLiteral(resourceName: "icon-weather-snow")
+        } else if main.contains("Drizzle") {
+            return #imageLiteral(resourceName: "icon-weather-drizzle")
+        }
+
+        // For all the rest
+        return #imageLiteral(resourceName: "icon-weather-else")
+    }
 }
 
 // Protocol
 extension WeatherViewController: IsAbleToReceiveData {
     // Recieve Data from another VC
-    func pass(_ data: String) {
-        selectedCityLabel.text = data
+    func passCity(_ data: City) {
+        selectedCityLabel.text = data.name + ", " + data.country
     }
 }
 

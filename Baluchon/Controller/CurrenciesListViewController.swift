@@ -112,7 +112,7 @@ extension CurrenciesListViewController: UITableViewDelegate, UITableViewDataSour
         // Save devise
         SettingService.devise = selectedDevise
         // Pass the devise back to the CurrencyVC
-        delegate?.pass(selectedDevise)
+        delegate?.passCurrency(selectedDevise)
 
         self.dismiss(animated: true)
     }

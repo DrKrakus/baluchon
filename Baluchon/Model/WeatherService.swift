@@ -14,12 +14,13 @@ class WeatherService {
     static var shared = WeatherService()
     private init() {}
 
-    // API url
+    // API urls
     // swiftlint:disable line_length
-    private let newYorkCity =
-    URL(string: "https://api.openweathermap.org/data/2.5/weather?\(ApiKey.openWeather)&units=metric&lang=fr&id=5128638")!
-    private let selectedCity =
-    URL(string: "https://api.openweathermap.org/data/2.5/weather?\(ApiKey.openWeather)&units=metric&lang=fr&id=2968815")!
+    private let newYorkCity = URL(string: "https://api.openweathermap.org/data/2.5/weather?" + "\(ApiKey.openWeather)&units=metric&lang=fr&id=5128638")!
+
+    private var selectedCity: URL {
+        return URL(string: "https://api.openweathermap.org/data/2.5/weather?" + "\(ApiKey.openWeather)&units=metric&lang=fr&id=\(SettingService.cityID)")!
+    }
 
     // Task
     private var task: URLSessionDataTask?
@@ -47,6 +48,7 @@ class WeatherService {
                 }
 
                 guard let weather = try? JSONDecoder().decode(Weather.self, from: data) else {
+                    print("Json fail")
                     callback(false, nil)
                     return
                 }
