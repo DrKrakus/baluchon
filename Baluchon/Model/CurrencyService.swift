@@ -17,18 +17,22 @@ class CurrencyService {
     // API url
     private let currencyURL = URL(string: "http://data.fixer.io/api/latest?access_key=\(ApiKey.fixer)")!
 
+    // Session
+    private var currencySession = URLSession(configuration: .default)
+
+    // Init session for UnitTest URLSessionFake
+    init(currencySession: URLSession) {
+        self.currencySession = currencySession
+    }
     // Task
     private var task: URLSessionDataTask?
 
     // Get currency from API
     func getCurrency(callback: @escaping (Bool) -> Void) {
 
-        // Set session
-        let session = URLSession(configuration: .default)
-
         // Set task
         task?.cancel()
-        task = session.dataTask(with: currencyURL) { (data, response, error) in
+        task = currencySession.dataTask(with: currencyURL) { (data, response, error) in
 
             // Return in the main queue
             DispatchQueue.main.async {

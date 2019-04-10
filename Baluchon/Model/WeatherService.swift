@@ -22,18 +22,25 @@ class WeatherService {
         return URL(string: "https://api.openweathermap.org/data/2.5/weather?" + "\(ApiKey.openWeather)&units=metric&lang=fr&id=\(SettingService.cityID)")!
     }
 
+    // Set session
+    private var weatherSession = URLSession(configuration: .default)
+    private var weatherNYSession = URLSession(configuration: .default)
+
+    // Init session for UnitTest URLSessionFake
+    init(weatherSession: URLSession, weatherNYSession: URLSession) {
+        self.weatherSession = weatherSession
+        self.weatherNYSession = weatherNYSession
+    }
+
     // Task
     private var task: URLSessionDataTask?
 
     // Get weather from API
     func getWeather(callback: @escaping (Bool, [String: Weather]?) -> Void) {
 
-        // Set session
-        let session = URLSession(configuration: .default)
-
         // Set task
         task?.cancel()
-        task = session.dataTask(with: selectedCity) { (data, response, error) in
+        task = weatherSession.dataTask(with: selectedCity) { (data, response, error) in
 
             // Return in the main queue
             DispatchQueue.main.async {
@@ -55,7 +62,10 @@ class WeatherService {
 
                 self.getWeatherForNY(completionHandler: { (weatherNY) in
 
-                    guard let weatherNY = weatherNY else { return }
+                    guard let weatherNY = weatherNY else {
+                        callback(false, nil)
+                        return
+                    }
 
                     var weatherDetails = [String: Weather]()
 
@@ -73,21 +83,21 @@ class WeatherService {
     // Get the weather for New York, US
     private func getWeatherForNY(completionHandler: @escaping (Weather?) -> Void) {
 
-        // Set session
-        let session = URLSession(configuration: .default)
-
         // Set task
-        task? = session.dataTask(with: newYorkCity) { (data, response, error) in
+        task? = weatherNYSession.dataTask(with: newYorkCity) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
+                    completionHandler(nil)
                     return
                 }
 
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    completionHandler(nil)
                     return
                 }
 
                 guard let weatherNY = try? JSONDecoder().decode(Weather.self, from: data) else {
+                    completionHandler(nil)
                     return
                 }
 

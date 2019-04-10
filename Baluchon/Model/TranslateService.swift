@@ -15,6 +15,14 @@ class TranslateService {
 
     private let url = URL(string: "https://translation.googleapis.com/language/translate/v2")!
 
+    // Set session
+    private var translateSession = URLSession(configuration: .default)
+
+    // Init session for UnitTest URLSessionFake
+    init(translateSession: URLSession) {
+        self.translateSession = translateSession
+    }
+
     // Task
     private var task: URLSessionDataTask?
 
@@ -24,12 +32,9 @@ class TranslateService {
         // Set request
         let request = getURLRequest()
 
-        // Set session
-        let session = URLSession(configuration: .default)
-
         // Set task
         task?.cancel()
-        task = session.dataTask(with: request) { (data, response, error) in
+        task = translateSession.dataTask(with: request) { (data, response, error) in
 
             // Return in the main queue
             DispatchQueue.main.async {

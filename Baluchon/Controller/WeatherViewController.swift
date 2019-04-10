@@ -111,7 +111,10 @@ class WeatherViewController: UIViewController {
 extension WeatherViewController: IsAbleToReceiveData {
     // Recieve Data from another VC
     func passCity(_ data: City) {
+        // Uptade city and country name
         selectedCityLabel.text = data.name + ", " + data.country
+        // Then automaticly update weather
+        getWeather()
     }
 }
 
