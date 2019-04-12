@@ -22,6 +22,8 @@ class CityListViewController: UIViewController {
     // Search for city
     var searchCity = [City]()
     var searching = false
+    // Throttling item
+    private var pendingRequestWorkItem: DispatchWorkItem?
 
     // Outlets
     @IBOutlet weak var cityListTableView: UITableView!
@@ -94,9 +96,10 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = cityListTableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath)
         let currentCity = citiesArray[indexPath.row]
+        let currentFiltredCity = searchCity[indexPath.row]
 
         if searching {
-            cell.textLabel?.text = searchCity[indexPath.row].name + ", " + searchCity[indexPath.row].country
+            cell.textLabel?.text = currentFiltredCity.name + ", " + currentFiltredCity.country
         } else {
             cell.textLabel?.text = currentCity.name + ", " + currentCity.country
         }
@@ -135,19 +138,24 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
 extension CityListViewController: UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
         searching = true
+        pendingRequestWorkItem?.cancel()
 
-        // Background thread
-        DispatchQueue.global(qos: .background).async {
-            self.searchCity = self.citiesArray.filter({
-                $0.name.lowercased().prefix(searchText.count) == searchText.lowercased()
-            })
+        let requestWorkItem = DispatchWorkItem { [weak self] in
+            DispatchQueue.global(qos: .background).async {
+                self!.searchCity = self!.citiesArray.filter({
+                    $0.name.lowercased().prefix(searchText.count) == searchText.lowercased()
+                })
 
-            // Main thread
-            DispatchQueue.main.async {
-                self.cityListTableView.reloadData()
+                DispatchQueue.main.async {
+                    self!.cityListTableView.reloadData()
+                }
             }
         }
+
+        pendingRequestWorkItem = requestWorkItem
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(250), execute: requestWorkItem)
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
