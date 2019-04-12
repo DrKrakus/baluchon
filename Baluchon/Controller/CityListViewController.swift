@@ -41,6 +41,9 @@ class CityListViewController: UIViewController {
         let clearView = UIView()
         clearView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
         UITableViewCell.appearance().selectedBackgroundView = clearView
+
+        // Change cursor color for searchbar
+        UITextField.appearance(whenContainedInInstancesOf: [type(of: searchBar)]).tintColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -95,12 +98,12 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = cityListTableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath)
-        let currentCity = citiesArray[indexPath.row]
-        let currentFiltredCity = searchCity[indexPath.row]
 
         if searching {
+            let currentFiltredCity = searchCity[indexPath.row]
             cell.textLabel?.text = currentFiltredCity.name + ", " + currentFiltredCity.country
         } else {
+            let currentCity = citiesArray[indexPath.row]
             cell.textLabel?.text = currentCity.name + ", " + currentCity.country
         }
 
@@ -115,6 +118,7 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         var selectedCityID: String
 
         if searching {
+            searchBar.resignFirstResponder()
             selectedCity = searchCity[indexPath.row]
             selectedCityID = String(selectedCity.id)
         } else {

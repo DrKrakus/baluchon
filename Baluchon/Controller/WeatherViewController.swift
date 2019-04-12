@@ -120,8 +120,15 @@ extension WeatherViewController: IsAbleToReceiveData {
     func passCity(_ data: City) {
         // Uptade city and country name
         selectedCityLabel.text = data.name + ", " + data.country
-        // Then automaticly update weather
-        getWeather()
+
+        // Display the loader
+        compareWeatherButton.isHidden = true
+        loader.isHidden = false
+
+        // Then automaticly update weather after QoL delay
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.getWeather()
+        }
     }
 }
 
