@@ -13,7 +13,20 @@ class TranslateService {
     static var shared = TranslateService()
     private init() {}
 
-    private let url = URL(string: "https://translation.googleapis.com/language/translate/v2")!
+    // API url
+    private var translateURL: URL {
+        var urlComponents = URLComponents()
+
+        urlComponents.scheme = "https"
+        urlComponents.host = "translation.googleapis.com"
+        urlComponents.path = "/language/translate/v2"
+
+        guard let url = urlComponents.url else {
+            fatalError("Could not create url from components")
+        }
+
+        return url
+    }
 
     // Set session
     private var translateSession = URLSession(configuration: .default)
@@ -65,7 +78,7 @@ class TranslateService {
     }
 
     private func getURLRequest() -> URLRequest {
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: translateURL)
         let body = "key=\(ApiKey.google)&q=\(Translate.shared.quote)&target=en"
 
         request.httpMethod = "POST"

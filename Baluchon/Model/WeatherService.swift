@@ -15,11 +15,44 @@ class WeatherService {
     private init() {}
 
     // API urls
-    // swiftlint:disable line_length
-    private let newYorkCity = URL(string: "https://api.openweathermap.org/data/2.5/weather?" + "\(ApiKey.openWeather)&units=metric&lang=fr&id=5128638")!
+    private var newYorkCityURL: URL {
+        var urlComponents = URLComponents()
 
-    private var selectedCity: URL {
-        return URL(string: "https://api.openweathermap.org/data/2.5/weather?" + "\(ApiKey.openWeather)&units=metric&lang=fr&id=\(SettingService.cityID)")!
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.openweathermap.org"
+        urlComponents.path = "/data/2.5/weather"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "APPID", value: ApiKey.openWeather),
+            URLQueryItem(name: "units", value: "metric"),
+            URLQueryItem(name: "lang", value: "fr"),
+            URLQueryItem(name: "id", value: "5128638")
+        ]
+
+        guard let url = urlComponents.url else {
+            fatalError("Could not create URL from components")
+        }
+
+        return url
+    }
+
+    private var selectedCityURL: URL {
+        var urlComponents = URLComponents()
+
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.openweathermap.org"
+        urlComponents.path = "/data/2.5/weather"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "APPID", value: ApiKey.openWeather),
+            URLQueryItem(name: "units", value: "metric"),
+            URLQueryItem(name: "lang", value: "fr"),
+            URLQueryItem(name: "id", value: SettingService.cityID)
+        ]
+
+        guard let url = urlComponents.url else {
+            fatalError("Could not create URL from components")
+        }
+
+        return url
     }
 
     // Set session
@@ -40,7 +73,7 @@ class WeatherService {
 
         // Set task
         task?.cancel()
-        task = weatherSession.dataTask(with: selectedCity) { (data, response, error) in
+        task = weatherSession.dataTask(with: selectedCityURL) { (data, response, error) in
 
             // Return in the main queue
             DispatchQueue.main.async {
@@ -55,7 +88,6 @@ class WeatherService {
                 }
 
                 guard let weather = try? JSONDecoder().decode(Weather.self, from: data) else {
-                    print("Json fail")
                     callback(false, nil)
                     return
                 }
@@ -84,7 +116,7 @@ class WeatherService {
     private func getWeatherForNY(completionHandler: @escaping (Weather?) -> Void) {
 
         // Set task
-        task? = weatherNYSession.dataTask(with: newYorkCity) { (data, response, error) in
+        task? = weatherNYSession.dataTask(with: newYorkCityURL) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     completionHandler(nil)

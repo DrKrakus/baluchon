@@ -19,9 +19,14 @@ class CityListViewController: UIViewController {
     weak var delegate: IsAbleToReceiveData?
     // Array of city
     var citiesArray: [City] = []
+    // Search for city
+    var searchCity = [City]()
+    var searching = false
+
     // Outlets
     @IBOutlet weak var cityListTableView: UITableView!
     @IBOutlet weak var loadingView: DesignableView!
+    @IBOutlet weak var searchBar: UISearchBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,16 +80,27 @@ class CityListViewController: UIViewController {
     }
 }
 
+// TableView Delegate
 extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return citiesArray.count
+        if searching {
+            return searchCity.count
+        } else {
+            return citiesArray.count
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = cityListTableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath)
         let currentCity = citiesArray[indexPath.row]
-        cell.textLabel?.text = currentCity.name + ", " + currentCity.country
+
+        if searching {
+            cell.textLabel?.text = searchCity[indexPath.row].name + ", " + searchCity[indexPath.row].country
+        } else {
+            cell.textLabel?.text = currentCity.name + ", " + currentCity.country
+        }
+
         cell.textLabel?.textColor = .white
 
         return cell
@@ -92,8 +108,17 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = cityListTableView.cellForRow(at: indexPath)!
-        let selectedCity = citiesArray[indexPath.row]
-        let selectedCityID = String(selectedCity.id)
+        var selectedCity: City
+        var selectedCityID: String
+
+        if searching {
+            selectedCity = searchCity[indexPath.row]
+            selectedCityID = String(selectedCity.id)
+        } else {
+            selectedCity = citiesArray[indexPath.row]
+            selectedCityID = String(selectedCity.id)
+        }
+
         guard let selectedCityName = cell.textLabel?.text else { return }
 
         // Save city name & city ID
@@ -103,5 +128,32 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         delegate?.passCity(selectedCity)
 
         self.dismiss(animated: true)
+    }
+}
+
+// SearchBar Delegate
+extension CityListViewController: UISearchBarDelegate {
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searching = true
+
+        // Background thread
+        DispatchQueue.global(qos: .background).async {
+            self.searchCity = self.citiesArray.filter({
+                $0.name.lowercased().prefix(searchText.count) == searchText.lowercased()
+            })
+
+            // Main thread
+            DispatchQueue.main.async {
+                self.cityListTableView.reloadData()
+            }
+        }
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        cityListTableView.reloadData()
     }
 }

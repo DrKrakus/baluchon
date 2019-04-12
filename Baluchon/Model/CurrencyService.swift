@@ -14,8 +14,17 @@ class CurrencyService {
     static var shared = CurrencyService()
     private init() {}
 
-    // API url
-    private let currencyURL = URL(string: "http://data.fixer.io/api/latest?access_key=\(ApiKey.fixer)")!
+    // Construct API url
+    private var currencyURL: URL {
+        var urlComponents = URLComponents()
+
+        urlComponents.scheme = "http"
+        urlComponents.host = "data.fixer.io"
+        urlComponents.path = "/api/latest"
+        urlComponents.queryItems = [URLQueryItem(name: "access_key", value: ApiKey.fixer)]
+
+        return urlComponents.url!
+    }
 
     // Session
     private var currencySession = URLSession(configuration: .default)
@@ -29,7 +38,6 @@ class CurrencyService {
 
     // Get currency from API
     func getCurrency(callback: @escaping (Bool) -> Void) {
-
         // Set task
         task?.cancel()
         task = currencySession.dataTask(with: currencyURL) { (data, response, error) in

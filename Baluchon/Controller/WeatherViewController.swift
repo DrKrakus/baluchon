@@ -60,11 +60,18 @@ class WeatherViewController: UIViewController {
             if success {
                 let weatherNY = weatherDetail!["newYork"]!
                 let weather = weatherDetail!["selectedCity"]!
+                var tempNY = weatherNY.main.temp
+                var temp = weather.main.temp
 
-                self.newYorkTemp.text! = String(weatherNY.main.temp) + "°"
+                // Round the temp
+                tempNY = Double(round(10*tempNY/10))
+                temp = Double(round(10*temp/10))
+
+                // Update UI
+                self.newYorkTemp.text! = String(tempNY) + "°"
                 self.newYorkDetail.text! = weatherNY.weather[0].description
                 self.newYorkWeatherIcon.image = self.setImage(for: weatherNY.weather[0])
-                self.selectedCityTemp.text! = String(weather.main.temp) + "°"
+                self.selectedCityTemp.text! = String(temp) + "°"
                 self.selectedCityDetail.text! = weather.weather[0].description
                 self.selectedCityWeatherIcon.image = self.setImage(for: weather.weather[0])
             } else {
