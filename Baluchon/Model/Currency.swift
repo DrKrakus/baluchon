@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+// Struct for matching Json response
 class Currency: Codable {
     // Singleton pattern
     static var shared = Currency()

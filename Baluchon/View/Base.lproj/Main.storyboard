@@ -108,7 +108,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MHe-1m-eM1" userLabel="Bottom View">
                                                 <rect key="frame" x="49" y="343" width="277" height="84.5"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Sic-ch-2nr" userLabel="Devise Button">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Sic-ch-2nr" userLabel="Currency Button">
                                                         <rect key="frame" x="0.0" y="0.0" width="48" height="23.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9Q-pT-J8n">
@@ -221,8 +221,8 @@
                         <outlet property="amountTextField" destination="k0O-xL-U7I" id="obQ-sq-tXf"/>
                         <outlet property="convertedAmountLabel" destination="g5X-E9-VjR" id="iop-or-yqm"/>
                         <outlet property="converterButton" destination="lao-VX-cpK" id="9bS-Aa-v1O"/>
-                        <outlet property="deviseButton" destination="Sic-ch-2nr" id="omI-cM-hCQ"/>
-                        <outlet property="deviseLabel" destination="K9Q-pT-J8n" id="HxD-OD-03w"/>
+                        <outlet property="currencyButton" destination="Sic-ch-2nr" id="omI-cM-hCQ"/>
+                        <outlet property="currencyLabel" destination="K9Q-pT-J8n" id="HxD-OD-03w"/>
                         <outlet property="headerView" destination="dtZ-jO-f1O" id="0AG-u8-b9X"/>
                         <outlet property="loader" destination="mcd-Qw-hAL" id="onW-jy-uBN"/>
                         <outlet property="scrollView" destination="dnB-A4-jD2" id="HST-35-dTc"/>

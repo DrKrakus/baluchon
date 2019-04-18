@@ -8,6 +8,7 @@
 
 import Foundation
 // swiftlint:disable identifier_name
+// Struct for matching Json response
 struct Weather: Codable {
     let weather: [WeatherElement]
     let main: Main

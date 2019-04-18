@@ -8,7 +8,7 @@
 
 import Foundation
 
-// Protocol for receive currency choice
+// Protocol for passing data
 protocol IsAbleToReceiveData: NSObjectProtocol {
     func passCurrency(_ data: String)
     func passCity(_ data: City)

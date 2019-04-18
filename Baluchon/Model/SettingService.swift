@@ -10,21 +10,24 @@ import Foundation
 
 class SettingService {
 
+    // Key words
     private struct Keys {
-        static let devise = "devise"
+        static let currency = "currency"
         static let city = "city"
         static let cityID = "cityID"
     }
 
-    static var devise: String {
+    // For chosen currency
+    static var currency: String {
         get {
-            return UserDefaults.standard.string(forKey: Keys.devise) ?? "EUR"
+            return UserDefaults.standard.string(forKey: Keys.currency) ?? "EUR"
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: Keys.devise)
+            UserDefaults.standard.set(newValue, forKey: Keys.currency)
         }
     }
 
+    // For chosen city
     static var city: String {
         get {
             return UserDefaults.standard.string(forKey: Keys.city) ?? "Paris, FR"

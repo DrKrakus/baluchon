@@ -47,12 +47,13 @@ class TranslatorViewController: UIViewController {
         sourceTextView.tintColor = .white
     }
 
-    // Translate func
+    /// Get translation from API
     private func getTranslation() {
         // Hide button and show loader
         loader.isHidden = false
         translatorButton.isHidden = true
 
+        // API call
         TranslateService.shared.getTranslation { (success, stringToDecode) in
             // Hide loader and show button
             self.loader.isHidden = true
@@ -66,27 +67,35 @@ class TranslatorViewController: UIViewController {
         }
     }
 
+    /// Decode a string with utf8
+    ///
+    /// - Parameter string: Translation quote from google API
+    /// - Returns: Quote supporting special characters, can be nil
     private func decodeString(_ stringToDecode: String) -> String? {
-        // Decode html string to a utf8 string
+        // Set options
         let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
             .documentType: NSAttributedString.DocumentType.html,
             .characterEncoding: String.Encoding.utf8.rawValue
         ]
 
+        // set Data
         guard let stringData = stringToDecode.data(using: .utf8) else {
             return nil
         }
 
+        // Decode the string with data and options
         guard let attributedString = try? NSAttributedString(data: stringData,
                                                              options: options,
                                                              documentAttributes: nil) else {
             return nil
         }
 
+        // Return the quote with special characters support
         return attributedString.string
     }
 }
 
+// UITexteView
 extension TranslatorViewController: UITextViewDelegate {
 
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
@@ -112,8 +121,8 @@ extension TranslatorViewController: UITextViewDelegate {
         return true
     }
 
-    // When the return key is taped
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        // When the return key is taped
         if text == "\n" {
             if sourceTextView.text == "" {
                 textView.resignFirstResponder()
@@ -131,6 +140,7 @@ extension TranslatorViewController: UITextViewDelegate {
         return true
     }
 
+    // Hiding keyboard
     @objc private func hideKeyboard(_ gesture: UITapGestureRecognizer) {
 
         sourceTextView.resignFirstResponder()
@@ -145,6 +155,7 @@ extension TranslatorViewController: UITextViewDelegate {
         }
     }
 
+    // Replace the UI elements at their original places
     private func resetUI() {
         UIView.animate(withDuration: 0.3) {
             self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
@@ -156,6 +167,7 @@ extension TranslatorViewController: UITextViewDelegate {
         }
     }
 
+    // Set the UITextView placeholders style
     private func setPlaceholders() {
         // Set the placeholder
         sourceTextView.text = "Tapez ici"

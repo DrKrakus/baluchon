@@ -10,6 +10,7 @@ import Foundation
 
 class TranslateService {
 
+    // Singleton pattern
     static var shared = TranslateService()
     private init() {}
 
@@ -39,34 +40,47 @@ class TranslateService {
     // Task
     private var task: URLSessionDataTask?
 
-    // Get translation from API
+    /// Get translatation from API
+    ///
+    /// - Parameter callback: Determine if the translate object is create or not and passing a string
+    /// - Remark: This function is executed in the Main Queue
     func getTranslation(callback: @escaping (Bool, String?) -> Void) {
 
         // Set request
         let request = getURLRequest()
 
-        // Set task
+        // Cancel task for prevent spamming
         task?.cancel()
+        // Set task
         task = translateSession.dataTask(with: request) { (data, response, error) in
 
             // Return in the main queue
             DispatchQueue.main.async {
+                // Check for data and no error
                 guard let data = data, error == nil else {
                     callback(false, nil)
+                    // Print the error
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
                     return
                 }
 
+                // Check for response
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                     callback(false, nil)
+                    print("No response from translateSession")
                     return
                 }
 
+                // Check for json decoder
                 guard let responseJSON = try? JSONDecoder().decode(TranslateModel.self, from: data) else {
                     callback(false, nil)
+                    print("Failed to decode translateJSON")
                     return
                 }
 
-                // Converting for a valid aposthrope text
+                // Create the string
                 let stringToDecode = responseJSON.data.translations.first!.translatedText
 
                 // Get the translation quote
@@ -74,14 +88,22 @@ class TranslateService {
             }
         }
 
+        // Resume task
         task?.resume()
     }
 
+    /// Create URL for Google API
+    ///
+    /// - Returns: URLRequest
     private func getURLRequest() -> URLRequest {
+        // Creating request
         var request = URLRequest(url: translateURL)
+        // Creating body
         let body = "key=\(ApiKey.google)&q=\(Translate.shared.quote)&target=en"
 
+        // Set request method to POST
         request.httpMethod = "POST"
+        // Adding the body
         request.httpBody = body.data(using: .utf8)
 
         return request

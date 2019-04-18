@@ -43,7 +43,7 @@ class CurrenciesListViewController: UIViewController {
         getCurrencyList()
     }
 
-    // Get the currency list
+    /// Get the currency list
     private func getCurrencyList() {
         // Check for same date
         guard checkForSameDate() else {
@@ -62,7 +62,9 @@ class CurrenciesListViewController: UIViewController {
         self.fillCurrencies()
     }
 
-    // Check the date
+    /// Check the date
+    ///
+    /// - Returns: Bool
     private func checkForSameDate() -> Bool {
         // Get the current date and compare
         let formatter = DateFormatter()
@@ -107,12 +109,12 @@ extension CurrenciesListViewController: UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = currenciesTableView.cellForRow(at: indexPath)!
-        guard let selectedDevise = cell.textLabel?.text else { return }
+        guard let selectedCurrency = cell.textLabel?.text else { return }
 
-        // Save devise
-        SettingService.devise = selectedDevise
-        // Pass the devise back to the CurrencyVC
-        delegate?.passCurrency(selectedDevise)
+        // Save currency
+        SettingService.currency = selectedCurrency
+        // Pass the currency back to the CurrencyVC
+        delegate?.passCurrency(selectedCurrency)
 
         self.dismiss(animated: true)
     }

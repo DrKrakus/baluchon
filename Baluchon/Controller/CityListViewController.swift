@@ -18,14 +18,14 @@ class CityListViewController: UIViewController {
     // Delegate
     weak var delegate: IsAbleToReceiveData?
     // Array of city
-    var citiesArray: [City] = []
+    var jsonCitiesArray: [City] = []
     // Search for city
-    var searchCity = [City]()
+    var filteredCities: [City] = []
     var searching = false
     // Throttling item
     private var pendingRequestWorkItem: DispatchWorkItem?
 
-    // Outlets
+    // MARK: Outlets
     @IBOutlet weak var cityListTableView: UITableView!
     @IBOutlet weak var loadingView: DesignableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -53,34 +53,42 @@ class CityListViewController: UIViewController {
         getCityList()
     }
 
-    // Close button
+    // MARK: Action
     @IBAction func didTapCloseButton(_ sender: Any) {
         self.dismiss(animated: true)
     }
 
+    /// Get city list from json file
     private func getCityList() {
+
+        // Check for file
         guard let url = Bundle.main.url(forResource: "citylist", withExtension: "json") else {
             return
         }
 
+        // Check for data
         guard let data = try? Data(contentsOf: url) else {
             return
         }
 
+        // Check for json decoder
         guard let json = try? JSONDecoder().decode(Cities.self, from: data) else {
             return
         }
 
+        // Append city to jsonCitiesArray
         for city in json {
             let cityId = city.id
             let cityName = city.name
             let cityCountry = city.country
             let city = City(id: cityId, name: cityName, country: cityCountry)
 
-            self.citiesArray.append(city)
+            self.jsonCitiesArray.append(city)
         }
 
+        // Hiding loading view
         loadingView.isHidden = true
+        // Reload tableview's data
         cityListTableView.reloadData()
     }
 }
@@ -89,24 +97,15 @@ class CityListViewController: UIViewController {
 extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searching {
-            return searchCity.count
-        } else {
-            return citiesArray.count
-        }
+        let arrayOfCities = searching ? filteredCities.count : jsonCitiesArray.count
+        return arrayOfCities
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = cityListTableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath)
+        let arrayOfCities = searching ? filteredCities[indexPath.row] : jsonCitiesArray[indexPath.row]
 
-        if searching {
-            let currentFiltredCity = searchCity[indexPath.row]
-            cell.textLabel?.text = currentFiltredCity.name + ", " + currentFiltredCity.country
-        } else {
-            let currentCity = citiesArray[indexPath.row]
-            cell.textLabel?.text = currentCity.name + ", " + currentCity.country
-        }
-
+        cell.textLabel?.text = arrayOfCities.name + ", " + arrayOfCities.country
         cell.textLabel?.textColor = .white
 
         return cell
@@ -115,23 +114,22 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = cityListTableView.cellForRow(at: indexPath)!
         var selectedCity: City
-        var selectedCityID: String
 
         if searching {
             searchBar.resignFirstResponder()
-            selectedCity = searchCity[indexPath.row]
-            selectedCityID = String(selectedCity.id)
+            selectedCity = filteredCities[indexPath.row]
         } else {
-            selectedCity = citiesArray[indexPath.row]
-            selectedCityID = String(selectedCity.id)
+            selectedCity = jsonCitiesArray[indexPath.row]
         }
+
+        let selectedCityID = String(selectedCity.id)
 
         guard let selectedCityName = cell.textLabel?.text else { return }
 
         // Save city name & city ID
         SettingService.city = selectedCityName
         SettingService.cityID = selectedCityID
-        // Pass the devise back to the CurrencyVC
+        // Pass the currency back to the CurrencyVC
         delegate?.passCity(selectedCity)
 
         self.dismiss(animated: true)
@@ -148,18 +146,18 @@ extension CityListViewController: UISearchBarDelegate {
 
         let requestWorkItem = DispatchWorkItem { [weak self] in
             DispatchQueue.global(qos: .background).async {
-                self!.searchCity = self!.citiesArray.filter({
-                    $0.name.lowercased().prefix(searchText.count) == searchText.lowercased()
-                })
+                self?.filteredCities = self?.jsonCitiesArray.filter({
+                    $0.name.lowercased().starts(with: searchText.lowercased())
+                }) ?? []
 
                 DispatchQueue.main.async {
-                    self!.cityListTableView.reloadData()
+                    self?.cityListTableView.reloadData()
                 }
             }
         }
 
         pendingRequestWorkItem = requestWorkItem
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(250), execute: requestWorkItem)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(400), execute: requestWorkItem)
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

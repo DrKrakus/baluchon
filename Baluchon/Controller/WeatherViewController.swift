@@ -15,6 +15,7 @@ class WeatherViewController: UIViewController {
         return .lightContent
     }
 
+    // MARK: Outlets
     @IBOutlet weak var newYorkTemp: UILabel!
     @IBOutlet weak var newYorkDetail: UILabel!
     @IBOutlet weak var newYorkWeatherIcon: UIImageView!
@@ -40,12 +41,12 @@ class WeatherViewController: UIViewController {
         citiesListButton.addGestureRecognizer(tap)
     }
 
-    // Action
+    // MARK: Action
     @IBAction func didTapWeatherButton(_ sender: Any) {
        getWeather()
     }
 
-    // Get weather from API
+    /// Get weather from API
     private func getWeather() {
         // Hiding the button and show the loader
         compareWeatherButton.isHidden = true

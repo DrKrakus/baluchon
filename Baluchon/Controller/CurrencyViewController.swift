@@ -20,15 +20,15 @@ class CurrencyViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var convertedAmountLabel: UILabel!
-    @IBOutlet weak var deviseButton: UIStackView!
-    @IBOutlet weak var deviseLabel: UILabel!
+    @IBOutlet weak var currencyButton: UIStackView!
+    @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var converterButton: DesignableButton!
     @IBOutlet weak var loader: UIActivityIndicatorView!
 
     // MARK: Action
     @IBAction func didTapConverterButton(_ sender: Any) {
-        convertCurrency()
+        getCurrency()
     }
 
     // MARK: Methods
@@ -45,16 +45,18 @@ class CurrencyViewController: UIViewController {
         // Change the textfield style
         setTextFieldStyle()
 
-        //User default devise
-        let devise = SettingService.devise
-        deviseLabel.text = devise
+        //User default currency
+        let currency = SettingService.currency
+        currencyLabel.text = currency
 
-        // Create and add the gesture for deviseButton
+        // Create and add the gesture for currencyButton
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.showCurrencies(_:)))
-        deviseButton.addGestureRecognizer(tap)
+        currencyButton.addGestureRecognizer(tap)
     }
 
-    // Show currencies
+    /// Go to the CurrenciesList ViewController
+    ///
+    /// - Parameters gesture: Tap gesture
     // swiftlint:disable all
     @objc private func showCurrencies(_ gesture: UIGestureRecognizer) {
         let sb = self.storyboard?.instantiateViewController(withIdentifier: "CurrenciesList")
@@ -62,21 +64,23 @@ class CurrencyViewController: UIViewController {
         vc.delegate = self
         self.present(vc, animated: false)
     }
-    
-    private func convertCurrency() {
+
+    /// Get currency from API
+    private func getCurrency() {
         // Checking the date
         guard checkForSameDate() else {
             // Hiding the button and show the loader
             converterButton.isHidden = true
             loader.isHidden = false
 
-            // If not the same date
+            // If not the same date, get the currency from API
             CurrencyService.shared.getCurrency { (success) in
                 // Showing the button and hide the loader
                 self.converterButton.isHidden = false
                 self.loader.isHidden = true
-                
+
                 if success {
+                    //
                     self.convertingCurrency()
                 } else {
                     self.alertCurrencyFail()
@@ -85,26 +89,38 @@ class CurrencyViewController: UIViewController {
             return
         }
 
-        // If the same date
+        // If the same date, just convert currency
         convertingCurrency()
     }
 
-    // Check the date
+    /// Check the date
+    ///
+    /// - Returns: Bool
     private func checkForSameDate() -> Bool {
-        // Get the current date and compare
+        // Create dateformatter
         let formatter = DateFormatter()
+        // Set the date format to match the format send by the api
         formatter.dateFormat = "yyyy-MM-dd"
+        // Create a date with the good format
         let date = formatter.string(from: Date())
-        
-        guard let apiDate = Currency.shared.date, apiDate == date else { return false }
-        
+        // Compare the date
+        guard let apiDate = Currency.shared.date, apiDate == date else {
+            // If not the same date, return false
+            return false
+        }
+        // If the dates are the same, return true
         return true
     }
 
-    // Convert Currency
+    /// Convert the amount of chosen currency in USD
     private func convertingCurrency() {
+        // Showing loader and hidding button
+        loader.isHidden = true
+        converterButton.isHidden = false
+
+        // Set constants
         let amountToConvert = Double(amountTextField.text!)!
-        let chosenCurrency = deviseLabel.text!
+        let chosenCurrency = currencyLabel.text!
         
         // First, convert chosenCurrency to EUR
         let convertedToEUR = amountToConvert / Currency.shared.rates![chosenCurrency]!
@@ -160,7 +176,7 @@ extension CurrencyViewController: UITextFieldDelegate {
         // Animations of headerView, scrollView and converterButton
         resetUI()
         // Convert currency
-        convertCurrency()
+        getCurrency()
         return true
     }
 
@@ -229,10 +245,16 @@ extension CurrencyViewController: UITextFieldDelegate {
 extension CurrencyViewController: IsAbleToReceiveData {
     // Recieve Data from another VC
     func passCurrency(_ data: String) {
-        deviseLabel.text! = data
+        currencyLabel.text! = data
         // Then convert again if the text is not empty
         guard amountTextField.text!.isEmpty else {
-           convertingCurrency()
+            loader.isHidden = false
+            converterButton.isHidden = true
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.convertingCurrency()
+            }
+
             return
         }
     }

@@ -8,6 +8,7 @@
 
 import Foundation
 // swiftlint:disable identifier_name
+// Struct for matching Json response
 typealias Cities = [City]
 
 struct City: Codable {
