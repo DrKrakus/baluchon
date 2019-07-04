@@ -200,14 +200,14 @@
 			children = (
 				4843B8F32237EDA2000D3AC7 /* CurrencyService.swift */,
 				4843B8F52237F264000D3AC7 /* Currency.swift */,
-				4866941022430FF90057E5EF /* SettingService.swift */,
-				4866941222453CA50057E5EF /* City.swift */,
 				4894E41C2245A14C00F190CC /* TranslateService.swift */,
 				4897A39D2246774500BD376A /* Translate.swift */,
-				48FE8511224844E40008CED2 /* ApiKey.swift */,
 				4870D59D224E3151002F4867 /* WeatherService.swift */,
-				488DA85C2242433E009B7168 /* Protocol.swift */,
 				4870D59F224E37BE002F4867 /* Weather.swift */,
+				4866941222453CA50057E5EF /* City.swift */,
+				48FE8511224844E40008CED2 /* ApiKey.swift */,
+				4866941022430FF90057E5EF /* SettingService.swift */,
+				488DA85C2242433E009B7168 /* Protocol.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
